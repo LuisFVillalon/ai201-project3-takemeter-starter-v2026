@@ -61,34 +61,201 @@ I reviewed the 40 newest posts in this community and found that posts usually ta
      The decision rule is worth a point on its own and it's the thing most
      people leave out. Every taxonomy has a hardest boundary. Name yours. -->
 
-### `label_one`
+### `idea_validation`
 
 **Definition:**
+When the main purpose is deciding what to build, identifying customer problems, testing product-market fit, or improving the product experience.
 
 **Example 1:**
+> **I'm exploring a PDF-based AI chat tool. Which industries would actually find this useful?**
 >
+> Hi everyone!
+>
+> I'm a .NET developer exploring ideas for a small SaaS product, and I'd like to validate a problem before spending time building it.
+>
+> The idea
+> I'm considering building a simple AI-powered document chat tool using RAG (Retrieval-Augmented Generation).
+>
+> The concept is straightforward:
+>
+> Users upload PDFs and ask questions about their contents through an AI chat interface.
+>
+> The AI answers based on the uploaded documents and provides references to the relevant pages or sections.
+>
+> Businesses can optionally integrate a small chat widget into their existing websites so their customers or employees can ask questions about approved documents.
+>
+> Users can manage their documents and chat through a web dashboard.
+>
+> For example, a business might use it to answer questions about product manuals, policies, technical documentation, training materials, or other documents relevant to its industry.
+>
+> I'm not limiting this to any particular industry. I'd like to discover where this would solve a genuine problem.
+>
+> I'd appreciate your feedback:
+> Which industry or type of business would benefit most from this product?
+>
+> What specific problem could it solve for that industry?
+>
+> Are businesses or individuals already using similar tools? What is missing from the existing solutions?
+>
+> Would you prefer uploading documents to a separate platform, or embedding a chat widget directly into your own website?
+>
+> Would this be valuable enough to pay for? If yes, what pricing model would make sense?
+>
+> I'm looking for honest feedback, including reasons why this might not be a viable product.
+>
+> I haven't committed to building it yet. My goal is to identify a specific use case where people have a genuine need, existing solutions fall short, and customers would be willing to pay.
+>
+> Thanks for sharing your thoughts!
 
 **Example 2:**
+> **Would freelancers actually use a single link to onboard new clients?**
 >
+> Hey everyone,
+>
+> I'm exploring a small SaaS idea and wanted to validate whether this is a real problem before building anything.
+>
+> The idea is a simple client onboarding tool for freelancers and small agencies.
+>
+> The workflow would be straightforward: instead of sending clients multiple emails, Google Forms, Drive links, and documents, you send them one link where they can complete everything.
+>
+> For example, a web developer could send a client a link where they can:
+>
+> Fill out a project brief and answer relevant questions.
+>
+> Upload files, images, logos, and other assets.
+>
+> Select a package or service.
+>
+> Review project timelines and milestones.
+>
+> Complete an onboarding checklist.
+>
+> The freelancer gets all the information organized in one place, without having to chase clients for missing details.
+>
+> I'm not trying to build another full CRM or project management platform. The goal is to make client onboarding as simple as possible.
+>
+> I'd love your honest feedback on a few questions:
+>
+> How do you currently onboard new clients? What tools do you use?
+>
+> What's the most annoying part of the process?
+>
+> Would having a single shareable onboarding link genuinely make things easier, or is your current workflow good enough?
+>
+> Would you pay around $5–$15/month for something like this? If not, what would make it worth paying for?
+>
+> Are there existing tools that already solve this problem well?
+>
+> I'm particularly interested in hearing from freelance designers, web developers, video editors, and small agency owners.
+>
+> I'm still at the validation stage, so I'm looking for honest criticism rather than encouragement. If this already exists and solves the problem well, I'd love to know that too.
+>
+> Thanks!
 
-### `label_two`
+### `marketing`
 
 **Definition:**
+When the main purpose is attracting visitors, generating awareness, or choosing promotional channels.
 
 **Example 1:**
+> **It took me a year but I have crossed 1M+ impressions finally**
 >
+> Everyone was building a directory last year so I thought of building one but growing it was tough as I don't have any audience on social media.
+>
+> So I learnt pSEO and revamped the website a couple of times and now it's been more than a year and it has more than 1000 pages and last month 5K+ traffic is coming from Google only (total traffic is almost 12K per month). And today I checked it has crossed 1M+ impressions in the last 12 months.
+>
+> Earlier I focussed on pSEO and building backlinks and from the last couple of months I have started content, a newsletter, and recently started consistently on twitter as well.
+>
+> The next goal is to reach 20k visitors per month, I could not believe I could say something like this as when I launched last year the traffic was 5-10 people only. So if u are building something and don't have an audience then plz start doing seo from day 1. If u have any questions I'm happy to help.
 
 **Example 2:**
+> **Marketing ideas?**
 >
+> I'm building a PC audio enhancer for audiophiles and audio professionals. It works on pretty much all audio devices; speakers, home theaters, headphones, etc.
+>
+> It has an easy-to-use room calibration, a technologically impressive spatial audio engine for both headphone- and speaker-based listening (really proud of each, they're better than anything I've ever tried, and I've tried a lot), algorithmic EQ (also very proud of that, works extremely well even for people with no audio experience), a manual EQ, and volume riding.
+>
+> It's an app for people with taste, who want to get the absolute most out of their listening devices.
+>
+> There are still quite some things to optimize and fine-tune with the app, but it's nearly ready for release. It looks aesthetic and feels premium and soulful. Also the user tests have been very positive; 100% of the test users prefer having it on and would spend money on it (well, the group was very small haha). I'm planning on offering it at $30-70 per year, with a free or a cheap trial.
+>
+> But I have no idea how I'll do marketing or actually find potential users. This is not my forte at all. My only ideas are to post on audiophile and professional forums, and also reach out to content creators to give them free lifetime access to the app, so that they could make videos on it if they're interested (that one might be a bit too optimistic?). But that's about all I've got...
+>
+> Idk, I do have a great vision for the app, but I don't know how to communicate it very effectively and how to reach the largest possible audiences that could be interested in something like this. And how to convert them into buying customers, etc.
+>
+> I feel like this is the biggest dark cloud over me right now, and I'd appreciate any and all ideas, resources, or anything at all from you fine people. I need help.
+
+### `sales_monetization`
+
+**Definition:**
+When the post focuses on turning visitors into signups, charging customers, setting prices, accepting payments, generating revenue, or closing deals.
+
+**Example 1:**
+> **I've read 300+ indie SaaS pricing pages this month. A few things I keep seeing**
+>
+> I've been writing to SaaS founders one by one for a few weeks, and I always read their pricing page first so the message is about something real. I'm past 300 now so here's what keeps showing up. No names.
+>
+> The big one is the jump between plans. $39 and then $160. $97 and then $495 and nothing in between. If you outgrow the first plan and don't need the second you squeeze into the small one or you leave, because almost nobody writes to ask.
+>
+> Trials are mostly 7 or 14 days and a few are 3. On the last day it's pay or go and I can count on one hand the pages that say what actually happens that day.
+>
+> Annual is nearly always 2 months free or something close to 20% off. Then every now and then someone does half price for the year and I really want to know how many people take that.
+>
+> Lots of founding prices too. $60 instead of $99, first year cheaper, launch price until some date... What happens to those people when it runs out, no idea, the page never says.
+>
+> "Talk to us" appears once you're big enough, 5+ seats or a lot of volume. Below that there's no button for "can we do something different".
+>
+> And the free plans. Very common and the wall is almost always a number: answers, credits, sites, searches...
+>
+> Full disclosure, the trial thing is what I'm building for (HAGGIN, a page where people about to leave can make an offer instead) so I'm not neutral on that one. Curious which of these you'd recognise in your own pricing.
+
+**Example 2:**
+> **Lost my first two deals, one to a junior hire and one to "we'll do it with Claude"**
+>
+> I'm building an AI product for companies.
+>
+> I sent my first two proposals, around R$4,500 a month (about $800).
+>
+> The first one was a travel agency with 20 people. The team told me they spend 2 to 3 hours on each material plus 1 hour reviewing. The pain was clear. The owner said no and decided to hire a junior full time.
+>
+> The second one was another agency. They said it was too expensive and wanted a one time project. A few weeks later they told me they were doing it themselves with Claude.
+>
+> So my real competitor is not other software, it's a junior or Claude.
+>
+> How do you price against "I'll just hire someone"? Compare with the salary, charge per user, or something else?
+
+### `operations`
+
+**Definition:**
+When the main issue concerns internal processes, customer support systems, infrastructure, compliance, hiring, or technical administration.
+
+**Example 1:**
+> **For those running support at a small startup, what was the hardest part of setting up your helpdesk?**
+>
+> I've built support operations from scratch a few times and I'm curious where other people get stuck. Macros? Tagging and reporting? Escalation rules? Knowing what to automate? If you've been through this, what do you wish you'd had on day one?
+
+**Example 2:**
+> **How do you tell a self-hosted customer “that’s your infra”**
+>
+> Say a paying customer’s app stops working. They host it themselves, and the problem turns out to be something they changed in their setup.
+>
+> From their side, they paid for your product and it isn’t working. I can understand why they’d come to you.
+>
+> What I’d struggle with is knowing when to stop helping. You might need to spend hours investigating before you can even explain why it’s their setup. By then, you’ve already done a fair amount of the work.
+>
+> I wouldn’t want to leave them stuck, but I also wouldn’t want every ticket to become our engineering team fixing someone else’s environment.
+>
+> If you offer self-hosting options, how do you navigate this conversation?
 
 ### The hardest boundary
 
 **Which two labels:**
+marketing vs. sales_monetization
 
 **The decision rule I used every time:**
 <!-- e.g. "If the post names a specific checkable fact, it's `analysis`, even
      if the tone is heated." -->
-
+If a post is about getting attention or traffic, it is marketing; if it is about converting prospects into signups, pricing, or payment, it is sales_monetization.
 
 
 ---
