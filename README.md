@@ -42,7 +42,14 @@
 <!-- Your community, and what your classifier sorts posts into. Three or four
      sentences. -->
 
+**Community:** r/SaaS
 
+I reviewed the 40 newest posts in this community and found that posts usually talk about four things:
+
+1. People posting about their product ideas and looking for validation.
+2. People posting with marketing intentions, to acquire more customers for their product.
+3. People asking for information or help on how to increase their sales, set their pricing, or monetize their product.
+4. People asking for technical and business help for their product or company.
 
 ---
 
@@ -140,6 +147,7 @@ Say so plainly — the disclosure is required, not penalised. -->
 **Base model:**
 
 **Settings:** <!-- epochs, learning rate, batch size, seed -->
+**Device:** CPU (PyTorch 2.14.1+cpu, 15.8 GB RAM)
 
 **Anything I changed from the defaults, and why:**
 
