@@ -44,12 +44,7 @@
 
 **Community:** r/SaaS
 
-I reviewed the 40 newest posts in this community and found that posts usually talk about four things:
-
-1. People posting about their product ideas and looking for validation.
-2. People posting with marketing intentions, to acquire more customers for their product.
-3. People asking for information or help on how to increase their sales, set their pricing, or monetize their product.
-4. People asking for technical and business help for their product or company.
+r/SaaS is a community where SaaS founders and online business owners hold discussions and share useful resources. TakeMeter reads a post from r/SaaS and sorts it into one of four labels. Many posts share product ideas and ask for validation (idea_validation), while others focus on attracting attention and customers to a product (marketing). Some posts ask how to increase sales, set pricing, or monetize a product (sales_monetization), and others ask for technical or business help with running the product or company (operations).
 
 ---
 
@@ -266,7 +261,7 @@ If a post is about getting attention or traffic, it is marketing; if it is about
      cases. -->
 
 **Where the posts came from:**
-299 public posts from r/SaaS, collected from the subreddit's "New" feed using Reddit's public RSS feed (no login). I wrote `collect_posts.py` to pull each post's title and full body text into `labels.csv`, removed one duplicate, and did not trim any posts.
+299 public posts from r/SaaS, collected from the subreddit's "New" feed using Reddit's public RSS feed (no login). Claude wrote `collect_posts.py` at my request to pull each post's title and full body text into `labels.csv`, removed one duplicate, and did not trim any posts.
 
 **How I labelled them:** I labelled the first 20 posts cold, with no AI help, using only my README definitions (marked `cold` in the `note` column). The remaining 279 posts were pre-labelled by Claude using my label definitions and decision rule, then I reviewed every one (marked `pre-labeled, checked`). While writing my hard cases, I changed rows 130 and 222 from `marketing` to `sales_monetization` to follow my decision rule.
 
@@ -312,16 +307,24 @@ If a post is about getting attention or traffic, it is marketing; if it is about
 
 <!-- Your starting model, your settings, and anything you changed and why. -->
 
-**Base model:**
+**Base model:** distilbert-base-uncased
 
-**Settings:** <!-- epochs, learning rate, batch size, seed -->
+**Settings:** 3 epochs, learning rate 2e-5, batch size 16, max length 128 tokens, seed 42
+
 **Device:** CPU (PyTorch 2.14.1+cpu, 15.8 GB RAM)
 
-**Anything I changed from the defaults, and why:**
+**Anything I changed from the defaults, and why:** Nothing. I used the notebook defaults.
 
-**Split sizes:** <!-- train / val / test, and per-label counts in the test
-split. If a label had fewer than about 8 in test, say so — it explains a lot
-of next unit's variance. -->
+**Split sizes:** train 209 / val 45 / test 45
+
+| Label | Train | Val | Test |
+|---|---|---|---|
+| idea_validation | 74 | 16 | 16 |
+| marketing | 49 | 10 | 10 |
+| sales_monetization | 44 | 10 | 10 |
+| operations | 42 | 9 | 9 |
+
+Every label has at least 9 posts in the test split. Training took 6 min 39 sec on CPU.
 
 
 
@@ -329,26 +332,21 @@ of next unit's variance. -->
 
 ## How I Used AI
 
-<!-- Two specific moments — what you asked, what came back, what you changed.
-
-     ⚠️ Plus disclosure of any pre-labelling. If you had a model pre-label a
-     batch and then read and corrected every one, say that. It's an allowed
-     workflow and disclosing it costs you nothing. Not disclosing it is the
-     problem. -->
+<!--  -->
 
 **Moment 1**
 
-- *What I asked for:*
-- *What came back:*
-- *What I changed:*
+- *What I asked for:* I gave Claude my four label definitions and asked it to write eight short r/SaaS-style posts that sit on the boundaries between my labels, without telling me which label each belonged to.
+- *What came back:* Eight boundary posts. I labeled all eight, and three of my answers contradicted my own definitions: a cold-outreach post (my rule says converting prospects is `sales_monetization`, but I chose `marketing`), a Stripe payment-failure post (`sales_monetization` includes "accepting payments," but I chose `operations`), and an onboarding drop-off post (`idea_validation` includes "improving the product experience," but I chose `sales_monetization`).
+- *What I changed:* I decided to keep my definitions as written rather than tighten them. I recorded this as a known weak spot, since posts about outreach, payment problems, and onboarding could be labeled inconsistently.
 
 **Moment 2**
 
-- *What I asked for:*
-- *What came back:*
-- *What I changed:*
+- *What I asked for:* I asked Claude to polish the reasons for my three hard cases (rows 130, 158, and 222).
+- *What came back:* Instead of only polishing them, it pointed out that for rows 130 and 222 I had chosen `sales_monetization` but my reason was "how to gain more visitors," which my decision rule places under `marketing`.
+- *What I changed:* I kept `sales_monetization` for both and changed the reasons to focus on conversion, since both posts already had visitors and none of them signed up. I also updated rows 130 and 222 in `labels.csv` so the CSV matches the README.
 
-**Pre-labelling disclosure:**
+**Pre-labelling disclosure:** I labeled the first 20 posts cold, with no AI help (marked `cold`). Claude pre-labeled the remaining 279 posts using my label definitions and decision rule (marked `pre-labeled, checked`). I reviewed them and agreed with all of them except rows 130 and 222, which I changed while writing my hard cases. Claude also wrote `collect_posts.py`, the script that collected the posts, and helped with grammar and wording in this README and in `criteria.md`, including drafting parts of this section from what happened during the project.
 
 <!-- ═══════════════════════ UNIT 6 — THE TEST ═══════════════════════
 
