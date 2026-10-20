@@ -332,7 +332,12 @@ Every label has at least 9 posts in the test split. Training took 6 min 39 sec o
 
 ## How I Used AI
 
-<!--  -->
+<!-- Two specific moments — what you asked, what came back, what you changed.
+
+     ⚠️ Plus disclosure of any pre-labelling. If you had a model pre-label a
+     batch and then read and corrected every one, say that. It's an allowed
+     workflow and disclosing it costs you nothing. Not disclosing it is the
+     problem. -->
 
 **Moment 1**
 
