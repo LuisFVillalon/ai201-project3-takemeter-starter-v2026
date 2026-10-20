@@ -54,60 +54,55 @@ whether you hit them:
 ## 1.
 
 <!-- Your criterion. It must name a number. -->
-
+Overall accuracy is at least 80% on the test set.
 
 
 **Why this target:**
-
-
+We are grouping posts into four categories, so we do not want to make more than 2 mistakes in a sample of 10.
 
 ---
 
 ## 2.
 
 <!-- Your criterion. -->
-
+Every label has F1 of at least 0.75.
 
 
 **Why this target:**
-
-
+We want this a bit lower than criterion #1 (80%), so 0.75 is the minimum for each of the four categories. I expect marketing or sales_monetization to be weak because posts can be similar, since they sometimes both address how to get new customers.
 
 ---
 
 ## 3.
 
 <!-- Your criterion. -->
-
+No label should hold less than 40 posts.
 
 
 **Why this target:**
-
-
+We want a minimum of 40 because anything less would result in our training set having fewer than 28 posts, our validation set fewer than 6, and our testing set fewer than 6. With fewer posts, the model cannot learn the label well or test its score reliably.
 
 ---
 
 ## 4.
 
 <!-- Your criterion. -->
+I agree with my own earlier labels on at least 15 of 20 re-labeled posts
 
 
 
 **Why this target:**
-
-
-
+I might change my mind on a post which can fit in either category, like marketing vs. sales monetization. I want to be able to change my mind on 5 out of 20 posts but no more, because that means the classification needs to be tweaked.
 ---
 
 ## 5.
 
 <!-- Your criterion. -->
-
+Predictions with confidence above 0.85 are correct at least 95% of the time.
 
 
 **Why this target:**
-
-
+We want our confident predictions to be correct more often than our overall accuracy (80%). If the model is more than 85% sure about a post, I want to be able to agree with its label without having to change it, and trust the label without checking it myself.
 
 ---
 
