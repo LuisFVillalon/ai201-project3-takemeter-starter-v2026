@@ -266,18 +266,19 @@ If a post is about getting attention or traffic, it is marketing; if it is about
      cases. -->
 
 **Where the posts came from:**
+299 public posts from r/SaaS, collected from the subreddit's "New" feed using Reddit's public RSS feed (no login). I wrote `collect_posts.py` to pull each post's title and full body text into `labels.csv`, removed one duplicate, and did not trim any posts.
 
-**How I labelled them:** <!-- Cold first? Pre-labelled with AI and corrected?
-Say so plainly — the disclosure is required, not penalised. -->
+**How I labelled them:** I labelled the first 20 posts cold, with no AI help, using only my README definitions (marked `cold` in the `note` column). The remaining 279 posts were pre-labelled by Claude using my label definitions and decision rule, then I reviewed every one (marked `pre-labeled, checked`). While writing my hard cases, I changed rows 130 and 222 from `marketing` to `sales_monetization` to follow my decision rule.
 
 **Counts per label:**
 
 | Label | Count | Share |
 |---|---|---|
-|  |  |  |
-|  |  |  |
-|  |  |  |
-| **Total** |  | 100% |
+| idea_validation | 106 | 35% |
+| marketing | 69 | 23% |
+| sales_monetization | 64 | 21% |
+| operations | 60 | 20% |
+| **Total** | 299 | 100% |
 
 **Three hard cases**
 
@@ -285,25 +286,25 @@ Say so plainly — the disclosure is required, not penalised. -->
      been, and what you chose. These are worth more than the easy 190. -->
 
 **1.**
-> *The post:*
+> *The post:* Row 130: "Spent 6 months building, been a month since launch. What's wrong?" Launched 2 months ago, 50 visits, 0 users, "none converted."
 >
-> *Could have been:*
+> *Could have been:* `marketing` or `sales_monetization`
 >
-> *I chose, because:*
+> *I chose, because:* `sales_monetization`, because the post already has visitors (50) and says none of them converted. The problem is turning existing visitors into signups, which my decision rule places under sales_monetization.
 
 **2.**
-> *The post:*
+> *The post:* Row 158: "Built a genuinely fast, non-wrapper AI tool for a "boring" B2B problem (OCR + data extraction). 100 cold emails and 6 warm dev leads later: everyone says "cool" and ghosts."
 >
-> *Could have been:*
+> *Could have been:* `marketing` or `sales_monetization`
 >
-> *I chose, because:*
+> *I chose, because:* `sales_monetization`, because the founder already has leads and the problem is converting them into paying customers, which my decision rule places under sales_monetization.
 
 **3.**
-> *The post:*
+> *The post:* Row 222: "Built a tool for PostHog users, launched it, and got 13 visitors and 0 users. Tell me why."
 >
-> *Could have been:*
+> *Could have been:* `marketing` or `sales_monetization`
 >
-> *I chose, because:*
+> *I chose, because:* `sales_monetization`, because the post already has visitors (13) and none became users. Like case 1, the problem is converting existing visitors into signups, so my decision rule places it under sales_monetization.
 
 ---
 
