@@ -1,0 +1,856 @@
+text,label,note
+"Self built SaaS - Are you still coding it mostly yourself?
+
+I have been working on a saas for years, solo, designing and developing everything, and multiple iterations of it before making anything public. I really want to finish this without really using AI to build any of it, though I do use AI in limited amounts for bug checking and efficiency improvements, and some JS scripts. Doing this myself is a ton of work, and I get hung up on wanting it to work correctly and look as best as I can. I feel like nobody takes this long to build something, so that alone is demotivating. And now with AI being so used for everything, I'm just thinking I've wasted all this time and that it's never going to be done, all while kids are building crazy fast things already that look amazing. 
+
+I guess my question is are people still preferring to hand code their projects more than utilizing AI? Do you feel like AI is just destroying our careers and work and it's not worth trying to catch up?",operations,"pre-labeled, checked"
+"is cold emailing enough for validation?
+
+Is cold emailing people that fit my ICP enough to find conversations? how many emails should i try to send daily?
+
+any advice is appreciated.",idea_validation,"pre-labeled, checked"
+"How do I determine if a product is good or if there a want for it?
+
+Hey guys,
+I’m building a small consumer SaaS that lets you upload screenshots and pdfs and scans it to tell you/remind you when bills are due or when to cancel free trials before you get charged. You can also put important documents in it like your license and passport to keep on top of when they expire.
+The problem i’m having is trying to figure out if this is a good idea that people would pay for before I put more of my time and money into it.
+I would really love some feedback and constructive criticism to figure out whether this is viable and what i can change/add to it. Also, for my future SaaS products, how do i determine if there is a market for their niche. Please remember i’m still new to SaaS.
+Thanks guys!",idea_validation,"pre-labeled, checked"
+"I made a web app that turns overwhelming tasks into micro steps
+
+Hello,
+
+I'm not diagnosed with ADHD, but there are about a hundred projects still needing to be finished or marketed and for years people around me have said I can't focus on one thing.
+
+It's been amplified with Claude code / Chatgpt, where I spend days planning and procrastinating until I burn out with nothing tangible at the end of it. Even if finishing would help me tremendously, I still seem to get stuck for days/weeks on minor things.
+
+Every productivity classics like todo-lists etc lasted few days at most.
+
+I got sick of it, so shipped a web app that break down overwhelming tasks into small doable ones. Honest feedback is welcome. kapigo.app",idea_validation,"pre-labeled, checked"
+"Anyone using Claude for the business side of their SaaS, not just coding?
+
+I see a lot of people using Claude to build their SaaS but not much discussion about what happens after the product is running.
+
+There's still invoices, expenses, payment tracking, subscriptions and all the boring admin stuff that comes with running a business.
+
+I've been looking into using Claude for more of that side too especially with MCP making it possible to connect actual business tools instead of just asking questions or generating spreadsheets.
+
+Is anyone here using Claude for day-to-day SaaS operations? 
+
+What have you managed to automate?",operations,"pre-labeled, checked"
+"How did you get your first few people to actually talk to you about your product?
+
+I'm curious how other founders approached customer discovery when they were starting from zero.
+
+I've found that building something is one challenge, but getting conversations with people who might actually need it is a completely different one (I definitely prefer building).
+
+I've tried reaching out to potential users, but most messages don't get a response. I'm trying to work out whether I'm contacting the wrong people, approaching them the wrong way, or simply expecting replies too quickly.
+
+For those who've been through this:
+
+- How did you find people who genuinely had the problem you were solving?
+
+- Did cold DMs or emails ever work for you?
+
+- What helped you get your first few honest conversations?
+
+I'd appreciate hearing what actually worked, including things you tried that went nowhere.",idea_validation,"pre-labeled, checked"
+"Non-US resident: Got D-U-N-S for US LLC with registered agent address?
+
+Has anyone living outside the US recently gotten a D-U-N-S number for a US LLC using only a registered agent address (like Northwest)? Were you asked for a Truepic Vision photo inspection? I’m planning to convert my Google Play account to an organization account.",operations,"pre-labeled, checked"
+"your app deployed successfully. cool, but does it actually work?
+
+so i've been posting about opennmind here for the past couple days, and something interesting happened. a bunch of people said they'd rather have an ai agent that actually tests their website after every deploy than another agent that just writes code. and honestly, the more i think about it, the more sense it makes. we have so many tools helping us build things, but somehow we're still manually clicking through our own websites to make sure nothing broke lol.
+
+someone even suggested having agents record bugs, then come back after you've fixed them, repeat the exact same steps, and record whether the fix actually worked. imagine waking up to a report showing what broke overnight, how to reproduce it, and whether your latest changes fixed the previous issues. that's the kind of workflow we're exploring with opennmind labs. we're also building a workspace for managing projects, researching ideas, and working with ai agents, but i really want the testing side to be genuinely useful rather than just another fancy dashboard.
+
+we're still building the first version and getting closer to launch. if you're interested, the waitlist is at https://opennmind.com and early users will get 1 month of pro for free when we release.
+
+but here's something i'm curious about. what's the most annoying bug you've ever shipped to production without realizing it? especially the ones where everything worked perfectly on your machine but completely broke for actual users. i'd love to hear some horror stories lol.",idea_validation,"pre-labeled, checked"
+"My ‌first ‌customer ‌paid. The product didn't notice.
+
+What I learned in the weeks after launching a tiny Trello Power-Up
+
+A couple of weeks ago I launched PrimeScheduler, a tiny Trello Power-Up that lets you schedule card comments for a specific time. I wrote about building it last time. This time it's about the thing nobody told you about: what happens after somebody actually pays you for something.
+
+Nothing in here is rocket science. Everything surprised me, nonetheless.
+
+1. ""Payment succeeded"" and ""customer got what they paid for"" are two different things
+
+My first paying customer went through checkout. The payment provider was happy. My webhook returned 200 OK. Green all over the place.
+
+The customer still had the free plan.
+
+The payment had no reliable way to be associated with any given user. Somewhere between the website, the checkout process and the webhook, the identity got dropped and my code kindly skipped the event without complaining.
+
+Lesson: the most important line in your billing code is the one that answers ""who is this payment for?"" Make it impossible to start a checkout without that answer, and make matching a payment to an account an emergency.
+
+
+
+2. Silent success is worse than a loud failure
+
+The webhook didn't crash. It returned ""ok"", logged a line that nobody ever looks at and moved on. From the payment dashboard' point of view, perfect delivery.
+
+If it had thrown an error, the provider would have retried and I would have had some red somewhere.
+
+Lesson: anything that touches money should be loud when it can't do its job. I now get an email when a payment comes in that the system can't associate with an account. Hopefully I'll never get one. The point is that I'll know if I do.
+
+
+
+3. Testing the whole purchase is different from testing the parts
+
+I'd tested the checkout. I'd tested the webhook with sample events. I'd never bought my own product, end to end, on a second account, opened the app and checked that the paid features were indeed unlocked.
+
+When I finally did (with a 100% discount code), it broke in a whole new way. A placeholder that I had written in my own notes ended up inside a real link, and the account ID came in with characters it shouldn't have had. Small typo, same result: paid, not upgraded.
+
+Lesson: make a free discount code, have a second test account and run the whole thing after every change to anything near billing. ""It works in pieces"" means zero.
+
+
+
+4. Your logs are already gone before you need them
+
+When I went to investigate, the server logs from the time of the purchase had already expired. That's not uncommon with free hosting tiers, which often have a very short expiration window for logs.
+
+What saved me was the notification history from the payment provider, which keeps the exact payload they sent and the response I sent back. It also let me resend the event once the bug was fixed.
+
+Lesson: know before you need them where the evidence is and how long it stays there. For billing, the event log from the provider is usually the best record you have.
+
+
+
+5. Clean-up jobs can quietly take away what people paid for
+
+Most integrations periodically check for users who have disconnected the app so that it can remove their data. Makes sense. Except it also removed their plan. A paying user who disconnected and then reconnected would have lost Pro and still been billed monthly.
+
+Lesson: separate ""delete this user's data"" from ""end this user's subscription."" Only the billing system should be able to end a subscription.
+
+
+
+6. Your landing page makes promises your code doesn't know about
+
+Reading my own website with fresh eyes, I discovered:
+
+the pricing said ""one workspace"" while the plan was actually tied to a single person
+
+the free tier, my main entry point, wasn't visible in the hero or the pricing table
+
+a technical limit was sold as a feature of the paid plan
+
+None of these were lies per se. They were things from early drafts that nobody re-read after I changed the product.
+
+Lesson: after launch, read your website as a skeptical customer. Every sentence about pricing should be something your code actually enforces.
+
+
+
+7. A face beats a feature list
+
+My first landing page looked like a hundred other AI-generated SaaS pages: dark background, purple glow, emoji labels. It was fine. It was also forgettable, and for a tool that asks for access to your Trello account, forgettable isn't great.
+
+I redesigned it to be more calming and added my photo with a sentence that support emails will go straight to me. For a solo product, ""there's a real person behind this"" is one of the best trust signals you can make.
+
+8. When something breaks, the first customer deserves a personal email
+
+When I learned that my first customer didn't get what they paid for, I didn't wait for them to complain. I emailed them, told them it was a bug on my side, fixed their account and pushed their next payment back as a thank you for their patience.
+
+It took ten minutes. With one paying customer, that customer is basically your whole business, so treat them like it.
+
+The short version
+
+- Make ""who is this payment for?"" impossible to get wrong.
+
+- Make billing failures loud.
+
+- Buy your own product, end to end, on a second account.
+
+- Know before you need them where the evidence is and how long it stays there.
+
+- Don't let clean-up code touch subscriptions.
+
+- Re-read your pricing page against your code.
+
+- Put a real person on the page.
+
+- Talk to your first customers personally.
+
+I'm ‌gonna ‌be ‌honest about how the week actually went. First sale was a little big, a few days later I'm looking at a payment I can't attribute to anyone and wondering what else I did wrong. I think that's just what building something alone looks like. No one is reviewing your webhook, or re-reading your pricing page, or calling you out on the clean-up job quietly cancelling people's plans. You discover these things by stumbling onto them.
+
+So if you are in the same place as me, shipping your first paid thing at night after your day job, checking the payment dashboard more often than you'd care to admit, half sure something is wrong: yeah probably something is. That's ok. Mine was, twice in a week. It's fixable, and your first customers will be a lot more forgiving than you think if you just tell them like it is.
+
+I'm actually curious about yours. What broke after your first sale? Leave it in the comments. I think gathering these up is more helpful than another ""how I got to 10k MRR"" post.",idea_validation,"pre-labeled, checked"
+"Will companies stop paying for software they can build with AI?
+
+Talking with people about my SaaS I'm always hearing ""Why somebody would pay for that, if they can build with some LLM?"". What you build for yourself with AI and what you still paying for? Have you ever lost a client for the argument ""I'm going to build my own""?",idea_validation,"pre-labeled, checked"
+"You didn't kill SaaS. You just invented a new form of unemployment.
+
+I swear, r/SaaS has developed a new type of unemployment.
+
+The full-time SaaS doomposter.
+
+I've been scrolling this subreddit all week and apparently SaaS is dead, AI wrappers are worthless, and nobody will pay for software anymore because everyone can vibe code now.
+
+Every day there's a new guy who discovered Claude Code last Tuesday, spent his weekend cloning Canva, open-sourced it, and now thinks he did humanity a favor.
+
+Congratulations, brother. You saved the world.
+
+Who's going to tell him there are already dozens of open-source Canva alternatives?
+
+And guess what?
+
+PEOPLE ARE STILL PAYING FOR CANVA.
+
+Including me. A technical guy who could probably figure out how to build or self-host an alternative.
+
+But apparently the guy with 14 GitHub repos, 17 stars, and zero customers understands the software industry better than everyone else.
+
+Let's look at how these ""worthless AI wrappers"" are doing:
+
+- Higgsfield: ""Just AI models with a UI."" → 20x annualized revenue run-rate growth in a year. $1 BILLION annualized run rate. Contracted business revenue up 10x since June.
+
+- HeyGen: ""Just AI avatars, bro."" → 2x ARR in 8 months. $200 MILLION ARR.
+
+- ElevenLabs: ""Just text-to-speech. Open source can do that."" → $500M+ ARR. Valuation DOUBLED to $22 BILLION in seven months.
+
+- Salesforce Agentforce: ""AI agents will kill SaaS."" → Agentforce premium-edition bookings MORE THAN DOUBLED QoQ. $1.5B+ reported ARR.
+
+But apparently none of these companies got the memo that SaaS is dead.
+
+And the funniest argument I keep seeing is: ""Why would I pay when I can just build it myself?""
+
+Seriously?
+
+EVERYONE KNOWS HOW TO MAKE A PIZZA.
+
+Flour. Cheese. Tomatoes. Water.
+
+There are millions of free recipes online.
+
+So why does Domino's still exist?
+
+Because I don't want to spend three hours making dough, cleaning my kitchen, and ending up with something that tastes like cardboard.
+
+I want pizza. I pay. I eat.
+
+SAME THING WITH SOFTWARE.
+
+Here's a personal example.
+
+I PAY FOR ADOBE. AND I DON'T CARE WHAT ANYONE THINKS.
+
+Yes, I know there are free alternatives.
+
+Yes, I know some guy open-sourced an Adobe replacement.
+
+But you're seriously telling me to abandon YEARS of experience, muscle memory, established workflows, integrations, reliability, and support...
+
+To spend weeks learning some free copycat that might not even do everything I need?
+
+Just to save a subscription?
+
+NO THANKS.
+
+I'll happily pay my expensive yearly Adobe subscription and get back to doing actual work.
+
+My time isn't free just because your GitHub repository is.
+
+And now let's talk about the biggest delusion in this subreddit.
+
+The people who genuinely believe:
+
+""Claude, clone this SaaS, deploy it, and make me a plan to reach $100K MRR.""
+
+That's adorable.
+
+You think launching a SaaS is just prompting Claude until a dashboard appears?
+
+AND BEFORE SOMEONE SAYS WE'RE JUST SCARED OF AI:
+
+WE USE AGENTS TOO.
+
+I'm working with a team. We use AI agents extensively.
+
+And we spend THOUSANDS OF DOLLARS on agents, models, tooling, and infrastructure.
+
+Not just a $20/month Claude subscription.
+
+We automate. We prototype. We generate code. We use the same technology you're celebrating.
+
+AND WE STILL SPEND WEEKS PREPARING TO LAUNCH A SINGLE PRODUCT.
+
+Weeks figuring out positioning.
+
+Weeks working on copy that actually converts.
+
+Weeks understanding the customer journey, onboarding flows, user behavior, and distribution strategy.
+
+Sometimes the hardest decision isn't what to build.
+
+IT'S FIGURING OUT HOW TO MAKE SOMEONE CARE THAT YOU BUILT IT.
+
+And after all that, you still have to acquire users, convert them, retain them, support them, and somehow make the economics work.
+
+Meanwhile, some guy deployed his 14th AI-generated clone on Vercel this month and is already asking ChatGPT why he hasn't reached $100K MRR.
+
+YOU BUILT A REPOSITORY. NOT A BUSINESS.
+
+And somehow these same people are now giving lectures about how billion-dollar companies are doomed because their software can be replicated.
+
+You spent 40 hours rebuilding something that costs $20/month.
+
+Got 17 GitHub stars.
+
+Saved $20.
+
+And now you're writing a 2,000-word manifesto about the death of SaaS.
+
+YOU DIDN'T DISRUPT AN INDUSTRY. YOU JUST FOUND A VERY EXPENSIVE WAY TO BE UNEMPLOYED.
+
+Look, I have nothing against open source or vibe coding.
+
+We literally use AI agents ourselves.
+
+But if simply making a free alternative killed a business, Adobe would've died years ago.
+
+Canva would've disappeared.
+
+ElevenLabs wouldn't be worth billions.
+
+Being able to replicate a product's features doesn't mean you can replicate its business.
+
+You can clone the interface.
+
+You can't prompt your way into its distribution, customer relationships, brand, trust, support operation, or years of product knowledge overnight.
+
+SaaS isn't dying. Your understanding of why people pay for SaaS is just embarrassingly shallow.
+
+And before someone writes another funeral announcement for the entire industry because they managed to clone Canva over a weekend...
+
+I have one question.
+
+If your free clone is so revolutionary, why are you begging for GitHub stars while the ""dead SaaS"" is still collecting subscriptions?
+
+Because there's a massive difference between ""I can clone it"" and ""I can compete with it.""
+
+And some of you are about to learn that the hard way.",idea_validation,"pre-labeled, checked"
+"I built a platform with a dozen possible use cases. How do you decide which one to commit to?
+
+I need to pick a lane and I can’t tell which one is right. Here is where I am.
+
+I’m a solo founder, still employed full-time. I built a platform that gives AI assistants structured knowledge to work from. It can serve many use cases, which is the problem. Every one of them looks plausible.
+
+Four lanes I’ve tested, with what actually happened:
+
+1. Individual users (B2C/prosumer). Early adopters found me on Twitter and Reddit. The feedback was good. One person used it heavily during a redesign and left a nice video review. Then nobody came back. Free alternatives (a folder of markdown, a CLAUDE.md) are good enough for one person.
+
+2. Ops and chief-of-staff roles at startups. Pain is real, since knowledge is scattered and decisions aren’t written down. I have a few design partners. Results are mixed: one has no budget, one has access but nobody uses it, one deprioritized it. Cold outreach to this group has stopped yielding after weeks of daily sweeps.
+
+3. A security data use case. I built a hosted lookup for vulnerability and certification data. Existing options mostly need self-hosting and local API keys. It’s the most concrete thing I have, and the buyer is clearly defined. I don’t know yet whether it’s a wedge or a side feature.
+
+4. Education and public data. A UN agency and two universities have shown interest. Slow, budget-dependent, hard to repeat.
+
+My current rule: pick the lane where someone with a budget can say yes within 30 days.
+
+Two questions:
+
+- If you had to bet on one for the next 60 days, which would you pick?
+
+- What evidence would make you drop a lane, and what would make you commit?",idea_validation,"pre-labeled, checked"
+"My first SaaS got 0 replies from 60 cold DMs, so I switched to content. Making it took so long I built a tool for it. What would you change?
+
+The video in this post was made in RapidCreate itself: the Post Studio's Laptop template with screenshots of the app, exported as a video with music and swipe sounds.
+
+3 months ago I posted here about launching my first SaaS (a quoting tool for tradespeople) and getting zero replies from 60+ cold DMs and emails. My takeaway was to stop cold outreach and do content instead: TikToks, Reels, carousels, showing the app.
+
+Problem: making that content took longer than building features. Every video meant writing a hook, finding footage, captioning, matching my brand's colours and fonts, exporting for three platforms. I'd lose an evening to two videos.
+
+So I built RapidCreate, solo, £0 budget. You type a hook and it makes up to five finished vertical videos in your brand. It also does carousels and single posts from your brand, and you can paste your website or App Store link and it drafts the brand kit for you. It just went live on the Microsoft Store.
+
+Being upfront this time: unlike my last post, a lot of you probably ARE the target audience, since most of us have to market our own products. So yes, it's partly a plug, but I mostly want your take on the decisions below.
+
+Decisions I'm unsure about:
+
+- It's a desktop app, not a web app. Rendering, captions and voiceover run on your own computer, so exports are fast and my server costs stay low. But it means a download, and it's Windows only for now (macOS coming soon). Would that stop you trying it?
+
+- Credits instead of unlimited. The AI writing costs me per use, so plans come with monthly credits. Does that feel fair, or does counting credits put you off?
+
+- The free start. Your first five videos and your first post are free, no plan needed. Enough to judge it, or too stingy?
+
+- The landing page. Does it tell you in five seconds what this is and who it's for?
+
+Honest answers welcome, same as last time. If you try it, I want to hear what broke or felt clunky.
+
+https://rapidcreate.io
+
+Music: ""Upbeat Corporate"" by Soundrider/Dope, CC BY 3.0",marketing,"pre-labeled, checked"
+"Got fired, built a product for a year, and nobody uses it. Tell me why.
+
+I got fired last year and started building Daftak, a knowledge management tool. A year in, almost nobody uses it, and I’d like to understand why. Could you take a look and tell me why you think that is? Is it the product or just a lack of awareness and trust?",idea_validation,"pre-labeled, checked"
+"How I increased my clients' sales by 500% and finally started making real money from my SaaS
+
+In February this year, I launched my SaaS that connects AI with e-commerce stores. I'll keep it short and maybe it helps someone, and to be honest, maybe someone here actually needs something like this.
+
+What I built is simple: Any clothing webshop, furniture salon, watch store, and eyewear store has a widget that lets potential customers see themselves with the product before they buy it.
+
+Here's an example with a furniture store: A customer wants to buy a new couch. They want to know how that couch will fit in their living room. Super simple - they just take a photo of their living room and upload it in my client's webshop, and it shows them THEIR living room with the couch they selected. Most of them decide to buy from that furniture salon because they can SEE what it looks like instantly in their own living room.
+
+My widget works the same way in the other niches I mentioned.
+
+What attracted my clients is that I didn't set a high price for using my tool at the beginning. I currently have over 60 different clients.
+
+If you're interested in anything related to my tool or you want this tool in your own store, feel free to reach me.
+
+Happy to answer any questions.",sales_monetization,"pre-labeled, checked"
+"I am building Tagdown, an Open Source love child of Obsidian and Logseq
+
+Hey everyone,
+
+I wanted to share Tagdown, a desktop notes app I’m working on. Notes are stored as .md files in local folders, and the editor adds support for callouts, columns, tabs, math, and diagrams.
+
+It has tags, wikilinks, backlinks, a daily journal, and full-text search. You can edit the source, use a split view, or edit individual blocks in the preview.
+
+One feature worth showing is queries inside notes. For example:
+
+<query tag:project show:tasks /> 
+
+That lists tasks from notes tagged project. Queries can also display notes as editable tables, cards, or boards. Moving a note between board columns updates its property.
+
+There’s also a presentation mode that splits a note into slides at ---, and an option to export notes as a static website.
+
+For anyone who wants to work with their notes from other tools, there’s a CLI and an MCP server for searching, reading, creating, and updating notes.
+
+The app uses Tauri, Rust, and vanilla TypeScript. The source is MIT licensed, and the repo includes build instructions.
+
+GitHub repository
+
+If you’d like to contribute, PRs, bug reports, and documentation fixes are welcome. You’re also welcome to fork it, build it for yourself, and change it to fit how you work. I’d be curious to see what people do with it.",idea_validation,"pre-labeled, checked"
+"I built shared memory system for every AI provider. Make research in grok, ask ChatGPT
+
+Every time I made a research in grok and hit free limit, I wanted to switch to ChatGPT or Claude and continue conversation. 
+
+Unfortunately, it wasn’t possible unless I copied the entire huge context (couple of messages), pasted in other AI provider and got angry that after such a process it still hallucinates.
+
+Then I was introduced to markdown second brain file system and I used it in Claude code. It worked perfectly but still… couldn’t make research across multiple providers.
+
+Solution? Shared memory via mcp on VPS. Connect once, use like crazy.
+
+I wanted to share this solution, maybe someone needs it.
+
+Cheers",operations,cold
+"Wondering why no one is using my SaaS even though we're 99% cheaper than our competition
+
+Hi, wondering if anyone else is having this experience. I made a SaaS for job listings that has good coverage and 99% cheaper API costs but it doesn't seem to get any traction? Essentially it's the same as my competitors with a giant price cut.
+
+Is it cause of the cheap cost itself implying something about my product? Or just bad distribution? Or maybe the product itself is unclear? Everyone talks about software going to 0 so what am I missing here?
+
+Please roast my ass",marketing,"pre-labeled, checked"
+"I drew the free/paid line at ""does it need my server"". Now the free tier has to warn people Safari might delete their book
+
+Disclosure up front: I made this. It's NovelDesk, a place to write a novel in the browser. I'm solo, it started as a Mac app, and the web version went live this month.
+
+When I moved it to the web I gave the free version one rule: it never talks to my server. No account, the manuscript sits in the browser's storage, a .docx import gets parsed on your own machine, and a backup is a file you download.
+
+That rule ended up drawing the pricing for me. Anything that needs a server is paid: syncing between devices, keeping every version, Word/EPUB/PDF export, publishing chapters as pages people can read, and the optional AI pictures. Everything else is free, for up to two manuscripts of 30 chapters. Paid is $8 a month or $60 a year.
+
+What I didn't see coming was the storage part. Safari clears a site's data if you don't visit it for 7 days. So the free version can't really promise your book is safe, and I had to say that on the screen. It now says your work is kept for 7 days, and it keeps nudging you to download a backup. It's the least growth-friendly sentence on the whole site and I went back and forth on it for a while. Asking the browser for persistent storage helps on some browsers, but the browser decides, not me.
+
+Two things I'm watching now:
+
+- whether people who hit the 30-chapter limit upgrade or just start a second manuscript
+
+- whether the 7-day warning scares people off before they've written anything
+
+If you run something with a big free tier that only lives on the user's device, how did you explain the ""your data is only here"" part without making it sound scary?
+
+https://noveldesk.app",sales_monetization,"pre-labeled, checked"
+"You don't need 1,000 customers to start testing Product-Market Fit.
+
+You need to ask the right questions to the right customers. 
+
+Sean Ellis popularized a simple PMF test: 
+
+Ask users:
+“How would you feel if you could no longer use our product? 
+
+Very disappointed
+Somewhat disappointed
+Not disappointed 
+
+A result of 40% or more saying “very disappointed” is a useful early signal, not proof of PMF. 
+
+Here's how I'd use it: 
+
+Survey customers who have experienced your products core value.
+Ask what they value most.
+Identify which customer segment loves the product.
+Investigate what's missing for everyone else.
+Repeat the survey as the product evolves. 
+
+Don't treat 40% as a universal pass/fail score. 
+
+Combine it with retention, repeat usage and willingness to pay. 
+
+The goal isn't to prove everyone loves your product.
+Its to discover who needs it most. 
+
+Seed-stage founders: how many paying customers do you have today? 
+
+Comment with your approximate number.",idea_validation,"pre-labeled, checked"
+"Anthropic at $2 Trillion vs. 35 SaaS Companies at $948 Billion Are AI Valuations Getting Out of Control?
+
+Survival getting tougher day by day.",sales_monetization,"pre-labeled, checked"
+"I built a site that tracks 4,500+ unregistered open*.com domains and re-checks them every few hours
+
+I kept finding good .com domain names, then losing them because by the time I decided, someone had registered them. So I built a tracker.
+
+What it does
+
+- Takes a list of ""open"" + keyword .com names (tech terms, science words, everyday words)
+
+- Checks each one directly with Verisign's registry, then re-checks every 3–6 hours
+
+- Drops names as soon as they're registered (one got taken this week)
+
+- Adds new candidates automatically
+
+Why ""open""? It's the prefix behind OpenAI and OpenEvidence ($450M raise), it's the #5 most-searched keyword by domain investors on NameBio, and recorded ""open"" sales total $3.1M.
+
+The product: attender.si. Right now 4,524 available names in one spreadsheet (Excel + CSV) for $3.99 one-time. There's a free 25-name sample with no sign-up and no card, so you can judge the quality first.
+
+Id really like feedback on:
+
+- Is $3.99 too cheap or about right for something like this?
+
+- Which other datasets would you pay for? (short .com names? .ai? .si?)",idea_validation,"pre-labeled, checked"
+"How do you actually make product videos and photos?
+
+I keep going back and forth. UGC creators cost a lot, AI tools feel fake, and shooting it myself looks bad. What do you actually use, and did it bring real conversions?
+
+Curious what worked for people who’ve shipped.",operations,cold
+"Launching a SaaS service internationally,what advice do you have? 📩
+
+For those who’ve launched a SaaS on their own, I’d love to hear how you approached the early stages.
+
+I’m building an educational SaaS and trying to figure out the simplest way to launch without creating unnecessary complexity from day one.
+
+My current plan is to focus on the US and Australia for paying customers, while keeping organic marketing global. I’m also looking at Paddle as a Merchant of Record to make payments and sales tax/VAT easier to manage.
+
+The part I’m still figuring out is how to approach international users and privacy regulations like GDPR without overcomplicating things before the product has traction.
+
+If you were starting today, would you make your product available worldwide from day one, or initially limit paying customers to a couple of markets?
+
+And if you use a Merchant of Record like Paddle, what responsibilities did you find you still had to handle yourself?
+
+I’m especially interested in hearing from founders who’ve actually gone through this. What did you do when you launched, and is there anything you wish you’d handled differently?
+
+Appreciate any real-world insights!",marketing,"pre-labeled, checked"
+"A stranger found that my pricing contradicted my own posts: 3 lessons a day vs. 20 a month
+
+Small lesson, but it stung.
+
+In my Reddit comments and in a directory listing, I wrote that people get 3 lessons a day. My paid plan says 20 lessons a month ($14.99). Someone in a thread did the math in about 5 seconds and asked which one it is. Fair, lol.
+
+What actually happens: you get 3 suggestions a day and open the ones you want, and the paid plan has 20 full lessons a month. ""3 a day"" was me writing copy from memory instead of from the product.
+
+What I'm doing now:
+
+- Same words everywhere: ""3 suggestions a day"" and ""20 lessons a month"".
+
+- Going through every place the numbers appear (landing page, pricing, listings, my own old comments).
+
+The scary part is how many places I had already repeated it.
+
+Does anyone have a system for this? One source of truth for plan numbers that all copy pulls from, or just a checklist before every change?",sales_monetization,"pre-labeled, checked"
+"We're getting really close to 10,000 members on r/LaunchMyStartup! 🚀
+
+Building a product is hard. Getting people to notice it can be even harder.
+
+You spend weeks or months building something, launch it, and sometimes it's just crickets. No users, no feedback, barely any attention.
+
+That's why I started r/LaunchMyStartup: a place where indie hackers and SaaS founders can launch their products, discover what others are building, and support each other. No paid promotions, just builders helping builders.
+
+We're now close to 10,000 members 🎉, and our Startup of the Day competition has already seen 100+ startups participate in just two weeks!
+
+Now, we need more people willing to discover these launches, give honest feedback, and support projects they genuinely like.
+
+You don't have to be a founder to be part of this. If you enjoy discovering cool products and helping people build, we'd love to have you.
+
+👉 r/LaunchMyStartup
+
+Let's make sure good projects don't go unnoticed.",marketing,"pre-labeled, checked"
+"what's your hosting stack for a new SaaS MVP?
+
+if you were launching a SaaS MVP today, what stack would you choose?would you use an all-in-one platform or combine tools like vercel, supabase, and hostinger web apps hosting?from the three what setup gives you the best balance of cost, simplicity, and scalability?",operations,"pre-labeled, checked"
+"Best roadmap to get into SaaS in this AI age?
+
+My background: I'm a 25 years old drop out, I kind know how to code because I was pretty comfortable in JS, React basics and programming concepts. There is no way for me to get back to uni because I hate it and I hate any trad career path, in my country most of them don't make you live well. I'm interested in working by myself and online, I always have so many business idea in my mind. It's either this or low paid jobs/poverty for life. Luckily another skill I have is that I'm very good at networking and talking to people. Anyway my questions to you: 
+
+Coding and AI: I want to be someone that knows how to fix stuff when AI can't and understand the code, in what exactly should I focus when I study programming and how good is AI? for example I hate front-end stuff like CSS. Should I skip it? what should I focus on programming side? and how good is free AI nowadays? 
+
+Market research, sales, marketing, distribution,scaling: The code is just the first step as you all know, what other skills are essential to build products that work and sell? and where can I learn them? 
+
+Please tell me more about your path especially if you are starting from zero like me. Thank you.",idea_validation,"pre-labeled, checked"
+"Drop your SaaS and I'll find customers for you on Reddit
+
+Over the last few weeks i’ve been researching buyer intent across Reddit for 300+ software products and startups.
+
+For this run, I’m prioritizing B2B products targeting specific business users or workflows (since consumer apps usually have very scattered signals) so if you've a live B2B product, drop your website and your target buyer role/industry below.
+
+I’ll run it through the system and dig up:
+
+> People actively talking about the exact problem you solve
+> Direct requests for tools and complaints/alternatives to your main competitors
+> Recurring buying signals you can leverage
+> The specific subreddits and active threads worth exploring 
+
+I'll send the full research breakdown directly to you so you can see where your potential customers are already talking about these problems.
+
+It's completely free so drop what you're building if you want to see what Reddit has for your niche (and I'll be upfront if the signal volume in your space is too thin).",marketing,"pre-labeled, checked"
+"How are you handling link routing and analytics in your stack without enterprise bloat?
+
+Hey everyone,
+
+Whenever building side projects or apps that generate dynamic links, custom tracking and routing always feels heavier than it should be. Most off-the-shelf URL shorteners either lock basic click analytics behind high pricing tiers or require bloated third-party scripts.
+
+I've been exploring lightweight architectures to handle redirect routing and click data cleanly at the API level.
+
+For those of you running SaaS apps or microservices: - Do you roll your own internal redirect/routing service, or rely on third-party tools? - What pain points or limits have you run into with existing solutions?",operations,"pre-labeled, checked"
+"Has BYOK helped or hurt your SaaS conversion rates?
+
+I added BYOK (bring your own API key) support to my AI side project today.
+
+The idea is to let users use their own API keys without paying extra for AI usage.
+
+But I'm wondering whether this actually helps with signups or just creates more friction during onboarding.
+
+Has anyone tried offering both BYOK and built-in AI usage? Did you notice any difference in signup or activation rates?
+
+Especially interested in real numbers rather than assumptions.",sales_monetization,"pre-labeled, checked"
+"Giving away a free website template
+
+I make website templates. I just released a free one for consultants and fractional CFOs/COOs/CMOs who sell monthly retainers: the pricing section is a sentence the visitor edits, and it shows the monthly fee and the saving against a full-time hire. Free to use in Framer: https://framer.link/Duoa6GY",marketing,"pre-labeled, checked"
+"one person farmed our AI free trial with 9 apple IDs and ran up ~$1,900 in image costs. how do you stop this without punishing real users?
+
+our image generation bill basically tripled in 9 days. installs were flat, revenue didn't move, no launch, no campaign. I spent two evenings staring at dashboards before it occurred to me to just ask.
+
+asked claude to dig through posthog (we log the cost of every generation there) and our subscription data and it found it in a few minutes, screenshot is that chat: a single device made 14,178 generations since oct 6, more than all our other users combined. it started 9 free trials from 9 different apple IDs, cancelled each one before it converted, never paid a cent.
+
+our trial limit was checked per account, not per device. so every new apple id = a fresh 3 day trial with unlimited generations.
+
+and yes, unlimited on purpose. our paywall and app store listing literally say unlimited generations, and quietly capping something you advertise as unlimited is the kind of thing that gets you a rejection from app review and a pile of angry reviews. so we never put a hard cap on it.
+
+we're adding a per-device cap now, but a lot of real families share one ipad and I don't want to block them. per device, per payment method, a daily generation limit during the trial... what has actually worked for you without annoying normal users?",operations,"pre-labeled, checked"
+"built a day planner you just talk to, looking for honest feedback
+
+hey! i'm 18, in my last year of school, and got tired of dragging every block into a calendar, so i built my own planner. it's called Ryth.
+
+you type or say what's coming up and it turns that into tasks with the right times (screenshot: what i typed on the left, my day on the right). if you have a lot of open stuff, there's a ""reorganize"" button that asks a few questions and then sorts it into your free time. you see every change first and can undo it.
+
+no account and nothing to pay, your tasks stay on your phone. android gets the app, iphone a web version (reminders there only while it's open).
+
+i'm looking for a few people who'd use it for a week and tell me honestly: what confused you, where did it misunderstand you, would you miss it? if you're up for it, reply and i'll send you an invite code. and if you just have thoughts from the screenshot, that helps too",marketing,cold
+"Solo founder, still in engineering school: 5 paying users for my outbound SaaS in 2 months. What moved the needle.
+
+I’m in my first year of engineering school and I run MagnetEngine xyz , on the side. 7 paying users, $1000+ MRR. It’s small, but I’ve made enough dumb mistakes that I figured I’d write them down.
+
+What it does: it finds instagram prospects for agencies and coaches, writes a dm for each one from their account/content/algorithme, basically stalk them, puts everything in an queue, and sends through a Chrome extension.
+
+What worked, in order of how surprised I was:
+
+My first users came from me just describing my old week to people. I used to be an appointment setter for coaches and agency owners, and I run a small web design agency where I hated prospecting. I’d say what that week looked like and they’d go “lol that’s me.” No pitch needed.
+
+The queue. Every bulk dm bot is cheaper and faster than mine, and mine is slower on purpose. I thought that would hurt. People actually pick it because of that. 
+
+Posts where I just explain how I do the process, no link. Those got me more trials than any post with a link in it. 
+
+What didn’t work: building stuff nobody asked for. I spent [7 weeks] on features and almost nobody touches it, while the feature people use gets opened every day.
+
+Right now I’m trying to figure out the real next problem, e.g. getting trials to actually pay
+
+if you’re curious. Happy to share any of the numbers.
+
+What was the first channel that worked for your saas?",sales_monetization,"pre-labeled, checked"
+"I built a SaaS in probably one of the most overcrowded markets possible
+
+Productivity apps.
+
+Yeah, I know. As if the world needed another one lol.
+
+But hear me out.
+
+I've always found it kinda weird how we have hundreds of apps designed to make us more productive, yet somehow we end up needing 5 different ones just to organize a single day.
+
+So I started building Timebird.
+
+It's basically my attempt at putting calendars, tasks, meetings, weekly planning, and all that stuff into one singular place.
+
+Google Calendar sync, booking links, time zones, availability settings, etc.
+
+Nothing revolutionary individually, I know.
+
+But I wanted something that didn't make me switch between multiple apps every time I needed to plan something.
+
+And now comes the part I genuinely have no idea how to approach.
+
+Getting people to actually use it.
+
+Building the thing was one challenge, but convincing someone to switch from tools they've been using for years? That's a completely different problem.
+
+Especially when you're competing with Google Calendar, Notion, Todoist, Calendly, and about a million other productivity apps.
+
+I'm not even sure whether trying to compete with all of them at once is a good idea.
+
+Here's what I've built so far: timebird
+
+For anyone who's launched something in a ridiculously competitive market, how did you convince your first users to give your product a shot?
+
+Because right now, figuring out distribution feels harder than building the actual app.",idea_validation,"pre-labeled, checked"
+"Am I solving a real problem, or is this just another tool nobody needs?
+
+I've been thinking about something that keeps happening whenever I work with different AI tools.
+
+Let's say you've spent hours working on a project in ChatGPT or Claude. The AI already understands your idea, requirements, decisions, and where you're headed.
+
+Then you switch to another AI tool, maybe Codex for development or Higgsfield for generating visuals.
+
+Suddenly, you're starting from scratch. You have to explain the project again, rewrite prompts, and hope the new AI understands everything correctly.
+
+Sure, you can copy-paste conversations, but that gets messy, especially with larger projects.
+
+So I'm exploring an idea called Contexfer.
+
+The concept is pretty simple: Your context should move with you, even when you switch AI tools.
+
+Imagine being able to:
+
+- Transfer project context from one AI model to another without starting over.
+
+- Move conversations between AI assistants or agents.
+
+- Preserve important decisions, requirements, and project progress.
+
+- Generate structured context that another AI can understand without reading hundreds of messages.
+
+The idea isn't to build another chatbot. It's to create a bridge between the AI tools we already use.
+
+We're still exploring the concept, and before spending months building something, I'd rather find out whether this is a problem people actually experience.
+
+A few questions:
+
+- Have you ever struggled to transfer context between AI tools?
+
+- How do you currently handle it? Copy-paste, Markdown files, custom prompts, or something else?
+
+- Would you genuinely use a tool like this, or do existing solutions already work well enough?
+
+And if you think this is a terrible idea, I'd actually love to hear why.
+
+I'm not trying to sell anything. Just trying to figure out whether this problem is worth solving before going too deep into development.
+
+Curious to hear your experiences.",idea_validation,"pre-labeled, checked"
+"38 Sign ups in the past 5 days. 5 Paying Users 61 Overall signups since launch in august.
+
+So we are now on a slow but steady climb this past week we have had 40 + users sign up for the platform to browse bids mainly coming from my TikTok posts. On that platform we went from 7 followers to 359 followers in a week period posting videos about my platform bidcompass dot net. we also gained our first 5 paying users all in one week. Now these 40 + users sign up to the platform and some will just be there to browse and view bids but others will show interest in the platform and want to subscribe they will request demos and then ghost me on the demos. I had 2 in platform users request demos then the day of not respond or join the zoom. 6 of them were out of platform users that had messaged me on TikTok asking for a demo and wanting to subscribe. The fix I put in place, I have users now tell me if they are just browsing or if they want software (bidcompass). They have to fill this out before they can complete sign up. let me know what y'all think of this. Also any tips on how to present demos would be appreciated imo its not hard getting people on the call its hard making them subscribe. its kinda annoying for them to schedule a demo at the end of the week then after the demo just sign up for the free trial and not subscribe fully. let me know what y'all think.",sales_monetization,"pre-labeled, checked"
+"Got my first paid client after 4 months
+
+https://preview.redd.it/bu74u55j8ewh1.png?width=2418&format=png&auto=webp&s=bab842ed2f7e24a1ff2dbbceaa6f0d2d242e45c8",sales_monetization,"pre-labeled, checked"
+"Marketing ideas?
+
+I'm building a PC audio enhancer for audiophiles and audio professionals. It works on pretty much all audio devices; speakers, home theaters, headphones, etc. 
+
+It has an easy-to-use room calibration, a technologically impressive spatial audio engine for both headphone- and speaker-based listening (really proud of each, they're better than anything I've ever tried, and I've tried a lot), algorithmic EQ (also very proud of that, works extremely well even for people with no audio experience), a manual EQ, and volume riding.
+
+It's an app for people with taste, who want to get the absolute most out of their listening devices.
+
+There are still quite some things to optimize and fine-tune with the app, but it's nearly ready for release. It looks aesthetic and feels premium and soulful. Also the user tests have been very positive; 100% of the test users prefer having it on and would spend money on it (well, the group was very small haha). I'm planning on offering it at $30-70 per year, with a free or a cheap trial.
+
+But I have no idea how I'll do marketing or actually find potential users. This is not my forte at all. My only ideas are to post on audiophile and professional forums, and also reach out to content creators to give them free lifetime access to the app, so that they could make videos on it if they're interested (that one might be a bit too optimistic?). But that's about all I've got...
+
+Idk, I do have a great vision for the app, but I don't know how to communicate it very effectively and how to reach the largest possible audiences that could be interested in something like this. And how to convert them into buying customers, etc.
+
+I feel like this is the biggest dark cloud over me right now, and I'd appreciate any and all ideas, resources, or anything at all from you fine people. I need help.
+
+Edit:
+I also probably need some SEO and GEO stuff, right? I'm a complete noob in that stuff as well.",marketing,"pre-labeled, checked"
+"Seeking advice on user acquisition.
+
+Hey there! Well it seems building the product is something, selling it is another thing. To provide a little contextI'm currently working on a language learning multi-platform application. The app is almost ready for beta testing. Yet I'm realizing now building the app is no more an unanswered question and the main thing between the current situation and success is to get it in the hands of real users (right users, hopefully) and to do it at scale.
+
+Now I would appreciate any wisdom on user acquisition you may have to share and if that includes any experience of your own in organic user acquisition that would be even more fantastic.",marketing,"pre-labeled, checked"
+"Detecting Grok Bot on your website.
+
+I was testing Grok's browser environment through test.leonix.io, and something interesting happened. Grok went from looking like a browser running in a cloud environment to something much closer to a regular desktop browser.
+
+Grok: Before vs. Now
+
+Signal Previous Grok Latest Grok             Browser Chrome 154 Chrome 155   Operating system Linux Linux   IP provider Cloudflare Verizon Business   Network type Hosting ISP   Datacenter detected Yes No   VPN detected Yes No   Relay detected Yes No   Virtual machine detected Yes No   GPU renderer SwiftShader (Subzero) Intel UHD Graphics 630   Logical processors 8 8   Device memory 16 GB 16 GB   Screen resolution 1920 × 1200 1920 × 1200   1. SwiftShader is gone
+
+Previously, Grok exposed SwiftShader (Subzero), a software based GPU renderer commonly found in virtualized or cloud browser environments. Now it reports Intel UHD Graphics 630, using Mesa and OpenGL. This doesn't necessarily mean it's running on physical hardware, but it removes one of the more obvious clues we previously observed.
+
+2. The network looks completely different
+
+Few days back, Grok traffic came through Cloudflare and was classified as datacenter traffic. VPN and relay detection were also positive. Now the connection comes through Verizon Business, classified as an ISP. No datacenter flag. No VPN flag. No relay flag. That's quite a change for anyone relying on network intelligence to identify automated browsers.
+
+So what does this tell us?
+
+A few days ago, identifying this Grok session using infrastructure and browser signals looked relatively straightforward. Now those signals have disappeared. It doesn't prove Grok deliberately changed its environment to avoid detection.
+
+And for those relying on HTTP headers to detect Grok, the identifying header we previously observed has been absent from our tests since October 9. If your agent detection depends on a header, an IP range, or SwiftShader, what happens when all three disappear? Grok is trying its best to look like human, would love to hear what you all found. If you're dealing with unwanted AI agent traffic and looking for a lightweight, low-code way to detect it, feel free to reach out.",operations,"pre-labeled, checked"
+"421 users. Only 5 sales. And a big lesson about SaaS customer acquisition.
+
+I recently reached 421 users on my SaaS, but only 5 of them actually paid.
+
+And it made me think about something a lot of founders seem to overlook.
+User numbers mean absolutely nothing if nobody is willing to pay for your product.
+I’ve noticed that many SaaS founders tend to believe that the best acquisition strategy is to attract as many users as possible.
+
+The logic is pretty simple:
+
+“If I can get 10,000 users, even if only 2% pay, that’s still 200 paying customers!”
+
+Sounds great in theory. But in practice, it doesn’t always work that way.
+With the explosion of new SaaS products, a lot of people sign up simply out of curiosity, to try something new, or just to use the free version.
+
+And if your product doesn’t provide enough value, why would they pay?
+The real issue is CAC (Customer Acquisition Cost).
+
+Imagine spending $1,000 to acquire 500 users, but only 5 become paying customers.
+
+Your cost per signup is $2, but your actual CAC is $200 per paying customer.
+
+And even if you manage to convert some users, if they don’t find enough value in your product, you’re likely to face a high churn rate.
+
+Personally, I’d rather attract 50 people who genuinely need what my product offers than 5,000 curious users who just want to try the latest SaaS tool.
+
+Signups feed your ego. Paying customers keep your SaaS alive. And retention proves its value.
+
+What do you think? As a founder, do you prioritize user volume or more targeted customer acquisition?",sales_monetization,"pre-labeled, checked"
+"How did you get your first 10 B2B SaaS users? (Struggling after transitioning from B2C)
+
+I'm currently building a B2B SaaS and struggling to land my first user.
+
+Before this, I ran a B2C language app and got 600+ users fairly easily just by posting consistently on TikTok and in Facebook groups. But B2B feels like an entirely different game.
+
+So far, I’ve tried:
+
+- Cold email: Sent about 30 emails (I know this is a small sample, but I kept them personalised to my ICP).
+- Social media X and Reddit
+- posted on HN (didn't got any engagement on it)
+
+For those of you who have made it past zero:
+
+- What was the specific channel or tactic that got your first 10 actual users?
+
+- How did you handle the mindset shift if you transitioned from B2C to B2B?
+
+Would love to hear what worked for you in the early days. 
+
+Thanks",marketing,"pre-labeled, checked"
+"Have you ever wanted to offer AI to free users but were afraid of abuse/cost?
+
+Imagine letting anyone try your product's AI without signing up.
+Sounds great for conversion, right?
+
+But then you start thinking: what if someone abuses it?
+What if traffic suddenly spikes?
+What if your free users end up costing you a fortune?
+
+Have you ever wanted to open up AI features to free or anonymous users but held back because of this?
+And if you went ahead with it, how did you manage the risk?",sales_monetization,"pre-labeled, checked"
