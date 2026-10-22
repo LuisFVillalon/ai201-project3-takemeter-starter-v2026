@@ -394,6 +394,19 @@ My trained model did worse than the zero-shot baseline on every measure (accurac
 <!-- Five criteria across three seeds. The notebook's section 6 prints the
      spread table; the Target and Verdict columns are yours. -->
 
+**Device:** CPU (torch 2.14.1+cpu). All three seeds trained on the same machine.
+
+| Measure | Seed 42 | Seed 7 | Seed 2024 | Spread |
+|---|---|---|---|---|
+| Overall accuracy | 0.356 | 0.356 | 0.356 | 0.000 |
+| Macro F1 | 0.131 | 0.131 | 0.131 | 0.000 |
+| F1 — `idea_validation` | 0.525 | 0.525 | 0.525 | 0.000 |
+| F1 — `marketing` | 0.000 | 0.000 | 0.000 | 0.000 |
+| F1 — `sales_monetization` | 0.000 | 0.000 | 0.000 | 0.000 |
+| F1 — `operations` | 0.000 | 0.000 | 0.000 | 0.000 |
+
+The spread is 0.000, but that isn't stability. All three seeds collapsed to predicting `idea_validation` for every test post, so they couldn't disagree. Training loss only fell from about 1.38 to 1.33 (random guessing among 4 labels is 1.386), so the model barely learned at all.
+
 | Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
 |---|---|---|---|---|---|
 | 1.  |  |  |  |  |  |
@@ -402,21 +415,25 @@ My trained model did worse than the zero-shot baseline on every measure (accurac
 | 4.  |  |  |  |  |  |
 | 5.  |  |  |  |  |  |
 
+
 ### Confusion matrix
 
 <!-- ⚠️ TYPED AS A MARKDOWN TABLE. The notebook prints one ready to paste.
      An image of a matrix earns nothing. -->
 
-| true \ predicted |  |  |  |
-|---|---|---|---|
-| **** |  |  |  |
-| **** |  |  |  |
-| **** |  |  |  |
+| true \ predicted | idea_validation | marketing | sales_monetization | operations |
+|---|---|---|---|---|
+| **idea_validation** | 16 | 0 | 0 | 0 |
+| **marketing** | 10 | 0 | 0 | 0 |
+| **sales_monetization** | 10 | 0 | 0 | 0 |
+| **operations** | 9 | 0 | 0 | 0 |
+
 
 **My biggest off-diagonal number, and what it means:**
 <!-- Not "the model made mistakes" — WHICH boundary it didn't learn, and which
      direction. "7 real analysis posts were called hot_take and only 3 went the
      other way" is a direction, not just an error rate. -->
+10 real `marketing` posts (and 10 `sales_monetization`, and 9 `operations`) were called `idea_validation`, and 0 went the other way. The model didn't learn any boundary: it put every post in the most common class (seed 42 shown; seeds 7 and 2024 were identical).
 
 
 
