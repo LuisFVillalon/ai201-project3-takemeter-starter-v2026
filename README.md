@@ -367,20 +367,25 @@ Every label has at least 9 posts in the test split. Training took 6 min 39 sec o
 
 | Measure | Baseline | Trained | Difference |
 |---|---|---|---|
-| Overall accuracy |  |  |  |
-| Macro F1 |  |  |  |
-| F1 — `label_one` |  |  |  |
-| F1 — `label_two` |  |  |  |
+| Overall accuracy | 0.467 | 0.356 | -0.111 |
+| Macro F1 | 0.422 | 0.131 | -0.290 |
+| F1 — `idea_validation` | 0.625 | 0.525 | -0.100 |
+| F1 — `marketing` | 0.400 | 0.000 | -0.400 |
+| F1 — `operations` | 0.200 | 0.000 | -0.200 |
+| F1 — `sales_monetization` | 0.462 | 0.000 | -0.462 |
+
 
 **What I predicted before I looked:**
 <!-- Milestone 1 asks you to write this BEFORE seeing the trained numbers. A
      prediction made afterwards isn't one. -->
+I expect my trained model to beat the baseline most on `operations`, because the baseline scored only 0.200 there and operations posts cover very different topics (support, infrastructure, hiring, compliance) that one sentence of definition can't describe, while the trained model saw real examples of each.
+
+What my definitions were worth: With bare label names, the baseline scored 0.489 accuracy (macro F1 0.467). With my definitions, it scored 0.467 (macro F1 0.422). That's one post fewer correct out of 45, so my definitions added nothing measurable and may have blurred the boundaries between labels. The baseline in the table above uses my definitions.
 
 **What the gap actually means:**
 <!-- If the baseline matched your trained model, your fine-tuning added
      nothing — and that is a real finding, not a failure. Say it plainly. -->
-
-
+My trained model did worse than the zero-shot baseline on every measure (accuracy 0.356 vs. 0.467). The confusion matrix in results.json shows why: it predicted idea_validation for all 45 test posts, the most common label in my data. Its average confidence was about 0.37, barely above the 0.25 of a random guess among 4 labels. So my fine-tuning added nothing. The model collapsed to the majority class instead of learning the boundaries between labels.
 
 ---
 

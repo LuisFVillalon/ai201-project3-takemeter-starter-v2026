@@ -5,6 +5,7 @@
 #
 # Delete the examples below and put yours in.
 
-analysis: makes an argument backed by a specific, checkable fact
-hot_take: a confident claim with no support offered
-reaction: an immediate response to something that just happened
+idea_validation: When the main purpose is deciding what to build, identifying customer problems, testing product-market fit, or improving the product experience.
+marketing: When the main purpose is attracting visitors, generating awareness, or choosing promotional channels.
+sales_monetization: When the post focuses on turning visitors into signups, charging customers, setting prices, accepting payments, generating revenue, or closing deals.
+operations: When the main issue concerns internal processes, customer support systems, infrastructure, compliance, hiring, or technical administration.
