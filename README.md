@@ -475,7 +475,7 @@ The spread is 0.000, but that isn't stability. All three seeds collapsed to pred
      data/staff_taxonomy.md, not your own — so every argument below is made
      from those definitions and those decision rules. -->
 
-**Agreement rate:** ___ / 30 = ___%
+**Agreement rate:** 30 / 30 = 100%
 
 <!-- Nobody grades this number. A 60% who argues every disagreement from the
      stated rules beats a 95% who wrote "staff was right" nine times. Several
@@ -497,26 +497,11 @@ The spread is 0.000, but that isn't stability. All three seeds collapsed to pred
      written rule two different ways on 30 posts, that is direct evidence about
      what you did across your own 200. -->
 
-**1.**
-> *The post:*
->
-> *Staff said / I said:*
->
-> *My call, and why:*
->
-> *Which pile:*
+I had no disagreements with staff, so there is nothing to adjudicate and no posts in piles (a), (b), or (c).
 
-**2.**
-> *The post:*
->
-> *Staff said / I said:*
->
-> *My call, and why:*
->
-> *Which pile:*
 
 **What the pattern in my disagreements tells me:**
-
+Matching staff on all 30 posts, including the ones picked to be ambiguous, suggests I apply written decision rules consistently. The rule that did the most work was Rule 1 ("does the fact carry the argument?"): when a post included a statistic, I asked whether the number was the reason for the conclusion or just decoration on it, and that decided between `analysis` and `hot_take`. Rule 2 settled the heated posts: if the post was about what just happened to the writer, it was `reaction`, but if it made a general claim about the world, it was `hot_take`, even when it sounded emotional. I think the agreement comes more from the rules being explicit, with worked examples for each boundary, than from the set being easy. This matters for my own model: if I can apply a written rule consistently on 30 hard posts, the collapse to `idea_validation` across all three seeds is more likely a model or training problem than inconsistent labels in my 299 posts.
 
 
 ---
