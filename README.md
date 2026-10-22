@@ -409,11 +409,12 @@ The spread is 0.000, but that isn't stability. All three seeds collapsed to pred
 
 | Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
 |---|---|---|---|---|---|
-| 1.  |  |  |  |  |  |
-| 2.  |  |  |  |  |  |
-| 3.  |  |  |  |  |  |
-| 4.  |  |  |  |  |  |
-| 5.  |  |  |  |  |  |
+| 1. Overall accuracy | ≥ 0.80 | 0.356 | 0.356 | 0.356 | MISSED |
+| 2. Every label F1 | ≥ 0.75 | 0.000 (lowest) | 0.000 (lowest) | 0.000 (lowest) | MISSED |
+| 3. No label under 40 posts | ≥ 40 each | 60 (smallest) | 60 | 60 | MET |
+| 4. Self-agreement on 20 re-labeled posts | ≥ 15 / 20 | 7 / 20 | n/a | n/a | MISSED |
+| 5. Confidence > 0.85 is right ≥ 95% | ≥ 95% | avg conf 0.37 | avg conf 0.36 | avg conf 0.35 | MISSED |
+
 
 
 ### Confusion matrix
@@ -446,11 +447,12 @@ The spread is 0.000, but that isn't stability. All three seeds collapsed to pred
 
 | # | Criterion | Target | Verdict | How I decided |
 |---|---|---|---|---|
-| 1 |  |  |  |  |
-| 2 |  |  |  |  |
-| 3 |  |  |  |  |
-| 4 |  |  |  |  |
-| 5 |  |  |  |  |
+| 1 | Overall accuracy | ≥ 0.80 | MISSED | 0.356 on all three seeds, far below 0.80 on every one. |
+| 2 | Every label F1 | ≥ 0.75 | MISSED | `marketing`, `sales_monetization`, and `operations` were 0.000 on all three seeds; even `idea_validation` was only 0.525. |
+| 3 | No label under 40 posts | ≥ 40 | MET | My smallest label, `operations`, has 60 posts. This is a property of the dataset, so it's the same for every seed. |
+| 4 | Self-agreement | ≥ 15 / 20 | MISSED | I re-labeled my 20 `cold` posts blind (`relabel_20.csv`) and matched my original label on only 7. |
+| 5 | Confident predictions are right | ≥ 95% above 0.85 | MISSED | The model's average confidence was 0.35–0.37 on every seed, nowhere near 0.85. You could argue this is "met" because no prediction failed above 0.85, but that would be a generous reading: the point was to have confident predictions I could trust, and the model never produced any. Even its most confident third was right only 33–47% of the time. |
+
 
 **Diagnoses**
 
@@ -462,6 +464,12 @@ The spread is 0.000, but that isn't stability. All three seeds collapsed to pred
      ⚠️ Use your agreement report as evidence. It is the only instrument you
      have that can tell a LABELLING problem from a MODEL problem, and this
      section is graded on whether you used it that way. -->
+
+**Misses 1, 2, and 5: the model didn't learn. This is mainly a training problem, with noisy labels making it worse.**
+All three seeds predicted `idea_validation` for every test post, and training loss only fell from 1.38 to 1.33 (random guessing among 4 labels is 1.386). It isn't too few examples: my smallest label has 60 posts (criterion 3 met), and imbalance is mild (`idea_validation` is 35%). It isn't an unlearnable task either: the zero-shot baseline reached 0.467 with no training at all. With 209 training posts, batch size 16, and 3 epochs, the model got only about 42 updates at learning rate 2e-5. That was too few to move it off the majority class.
+
+**Miss 4: I applied my own boundaries inconsistently, mainly `marketing` vs. `sales_monetization`.**
+I re-labeled my 20 `cold` posts and changed 13 of them. 11 of the 13 changes involve `marketing`, and 6 are exactly `marketing` ↔ `sales_monetization`, the boundary I named as hardest in my taxonomy. My agreement report is what tells me this is a definition problem and not carelessness: under the staff taxonomy, with explicit rules and worked examples, I matched staff on 30/30. Under my own definitions, I matched myself on only 7/20. My rule-following is consistent; my definitions overlap ("attracting visitors" vs. "turning visitors into signups" share the same posts). That noise is in my training data too, which makes it harder for the model to learn even once training is fixed.
 
 
 

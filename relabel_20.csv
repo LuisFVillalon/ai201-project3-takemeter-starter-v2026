@@ -1,0 +1,403 @@
+text,original_label,relabel,agree
+"Am I wrongly discouraged of distribution bottleneck?
+
+I have been reading and hearing “building a product is easy, marketing/distribution is the main challenge”. And i totally agree. I have been trying to somehow “crack” distribution for a few months now, and i feel the pain and frustration.
+
+But a random thought arrived - is this frustration amplified because thats what is being bombarded on social media? Because thats generally what distribution feels like.
+Or am i just finding another excuse to build more features by asking that question?
+
+In my mind, the answer to both these question carry equal weight and suspicion. Would love to read reconsidered thoughts around this topic.",operations,marketing,False
+"What’s the best way to handle a small team coding multiple overlapping products?
+
+We have a few people under our CTO who do a lot of the basic work via vibe code, and the CTO reviews and does the back-end heavy lifting. 
+
+We have multiple projects going with lots of code borrowed from different places, and it’s getting very confusing about where everything fits. For example, the other day I realized I had wasted a lot of time accidentally re-building a feature we had in another project, but then someone else hadn’t built/merged in the correct repo, and some things just got really tangled. 
+
+For reference, we do bespoke wealth management infrastructure. We’ve been thinking about better ways to map our systems/features in a better way that Claude understands so we don’t have to keep going back and forth with Linear and double checking each other. 
+
+What’s a best practice here? Any mapping/defined rules that we can plug and play for our team when they’re using Claude/codex? Or am I being naive about how far we can get with vibe coding?",operations,operations,True
+"Is it worth it to pay for a landing page design?
+
+I’m getting closer to launch and starting to realize the value of a good landing page. I made a draft with Claude that looks good but I feel like it’s definitely missing a marketing touch. I’ve thought about going through and just thinking about what could be better since obviously I know the app better than anyone else, but also I feel like it wouldn’t be an unreasonable expense to just have an someone a bit more marketing-savvy on Fiverr or something to do it. I definitely want to pay someone for a demo video. What’s worked for you?",sales_monetization,marketing,False
+"I spent months trying to solve a stupid problem: photos lost in WhatsApp groups
+
+Hi everyone, I’m from Argentina so sorry in advance for my english, is not perfect.
+
+I want to share something I was working on the last months, mostly because I think the problem is more common than people think and maybe some of you have feedback.
+
+The problem
+
+Here in Argentina (and I think in all Latin America) WhatsApp is used for everything. Family groups, school parents group, the football team, work, the building neighbors... And in these groups people share a LOT of photos and videos. Birthdays, kids events, trips, documents, receipts.
+
+The problem is that this photos basically die there. You change your phone, the backup fails, someone leave the group, or you just have 15.000 messages and you can’t find nothing. My mother lost practically all the photos of my nephew first year because they were only in a group and her phone broke. That was the moment I said ok, I need to do something.
+
+WhatsApp lets you “export chat” with media, but what you get is a ZIP with hundreds or thousands of files with names like IMG-20240312-WA0042.jpg, all mixed: photos, audios, stickers, pdfs, videos. Nobody is going to organize that manually. I tried, I gave up after 20 minutes lol.
+
+What I built
+
+A web app where you drop the exported ZIP and it:
+
+- separates everything in folders (photos, videos, audios, documents, etc.). It checks the real file type by the bytes, not only the extension, because WhatsApp sometimes names things weird
+
+- classifies the photos by topic (people, food, documents/screenshots, landscapes, etc.) with an AI model that runs inside your browser
+
+- uploads it all organized to Google Drive, or gives you a ZIP already ordered to download
+
+The security part (this was the most important for me)
+
+This was the part I thought more about. People’s family photos and private chats are very sensitive and honestly I wouldn’t upload my family group to a random website. So I took some decisions from the beginning:
+
+- There is no backend. Zero. Everything is processed in your browser: reading the ZIP, the classification, all. Your files never touch my server because I don’t have one for that.
+
+- The AI model runs local in the browser (in a web worker). The first time it downloads the model, after that the photos are analyzed on your computer. No sending images to some API.
+
+- The chat text is discarded. The .txt with the conversation is never uploaded anywhere, I just ignore it. The idea is to save the media, not to read your conversations.
+
+- No user account. You don’t need to register. For Google Drive I only ask the most limited permission Google has (drive.file), that means the app can only see the files that it creates, not the rest of your Drive.
+
+- Analytics only if you accept cookies, and never with file names, chat names or emails.
+
+To be honest, building this without backend was harder. Big ZIPs (some are 2-3 GB) in the browser can eat all the memory, so I had to process things in streaming and in pieces. Also the model loading time was a problem on slow phones. Still fighting with some of that.
+
+What I learned so far
+
+- The “privacy first” thing is not only marketing, people actually ask about it before anything else. The first question everybody made me was “where do my photos go?”
+
+- Not having backend = almost zero server costs, which for a solo dev in Argentina with our economy is very important haha
+
+- Explaining to non tech people how to export a WhatsApp chat is harder than the technical part. I’m still working on that.
+
+Questions for you
+
+- Have you had this problem with WhatsApp (or Telegram) groups? How do you solve it?
+
+- For those who built privacy-focused tools: how do you communicate that to users without sounding like every other app that says “we care about your privacy”?
+
+If someone want to try it, just ask me in the comments or by DM and I send you a code for a free trial. Not trying to sell nothing here, I’m more interested in feedback and knowing if it works with your exports, because every phone exports a bit different.
+
+Thanks for reading!",idea_validation,idea_validation,True
+"I’m 23, recently got let go from my warehouse job, and now I’m doing DoorDash while trying to sell software I built myself
+
+I’m 23, based in Rhode Island, and I’ve spent nearly a year building my own software projects under my company, OnlyTruePerspective LLC.
+One of those projects is OTP FloorOps, a warehouse operations platform inspired by my own experience working in warehouses.
+The idea came from seeing how things actually work on the floor. Damaged freight, missing shipments, equipment inspections, supervisor communication, paperwork, and all the little operational problems that can slow everything down.
+So I started building software around those problems.
+FloorOps lets warehouse employees document freight issues, attach photos, track equipment problems, and gives supervisors a way to review and manage what’s happening.
+I’ve built a working demonstration, and I’m currently finishing the infrastructure needed to support real customers securely.
+But here’s where life gets interesting.
+I recently got let go from my warehouse job.
+I’m not going to pretend that suddenly makes everything easy. Bills still exist, and I still need money coming in.
+So right now, I’m doing DoorDash to earn money while continuing to build my business.
+And today, I finally started doing something I’ve been putting off: cold-calling actual warehouses.
+I’ve spent so much time developing software, designing interfaces, testing features, and figuring out the technical side that I realized something important.
+I can keep building forever, but eventually I have to get in front of real customers.
+My first call went unanswered.
+On my second call, I actually spoke with someone. I asked what warehouse management system they used and how they handled damaged freight and supervisor communication.
+They explained their process and told me they weren’t currently looking for new software.
+Fair enough. I thanked them and moved on.
+On another call, I spoke with someone who gave me a direct callback number. I’m planning to follow up.
+I definitely hesitated during some of these conversations. I’m still figuring out how to ask the right questions without sounding like I’m reading a sales script.
+It’s a completely different skill from programming.
+But I also realized that I don’t need to sound like some perfect salesperson. I need to understand how these businesses operate, what problems they actually have, and whether something I’ve built could genuinely help.
+I have zero paying customers so far.
+I’m not claiming I’ve built some successful SaaS empire. I haven’t.
+I have a product I’ve put serious time into, a working demo, a business I’ve established, and a lot to learn about sales.
+Right now, my days look something like this:
+● Work on the software and prepare demonstrations.
+● Research warehouses and call operations managers.
+● Learn about their WMS, receiving processes, and operational problems.
+● Do DoorDash to keep some income coming in.
+● Repeat.
+It’s definitely an unusual position to be in.
+One minute I’m delivering food to make money for the day, and the next I’m calling a warehouse trying to figure out whether they’d consider paying for software I created.
+I’m trying to build something that eventually gives me more control over my time and income.
+I know it’s not going to happen overnight, and I’m not expecting every business to be interested.
+But I’d rather start having real conversations now than spend another year building features nobody has asked for.
+For people who’ve built businesses from scratch, especially B2B software:
+1. How did you land your first paying customer?
+2. How did you get comfortable cold-calling businesses?
+3. Would you focus on booking demos immediately or spending more time understanding how potential customers operate?
+4. How did you balance short-term income with trying to build something long-term?
+I’m genuinely interested in hearing from people who’ve been through this.
+No success story to sell here. Just a 23-year-old trying to figure things out, make money, and build something real.
+One call, one delivery, and one day at a time.",marketing,sales_monetization,False
+"We launched on Product Hunt and finished as Product of the Day. What should we do next?
+
+NitroStack launched on Product Hunt and finished as Product of the Day. We were really pleased with the reception. But the reason we launched wasn’t just to get attention. We wanted to find people who were interested in what we’re building, get NitroStack into their hands, and learn what they actually need from it.
+
+The launch gave us a good starting point. Now we want to understand how many of those people will use the product, what they’ll build with it, and whether we can make their lives easier.
+
+Our current focus is to make sure we retain the users we’ve found. Any launch can lead to an initial rise in traction, but the important thing is whether people stick around once they’ve tried the product. That way, every bit of marketing we do adds lasting value, rather than just bringing another temporary spike in traffic.
+
+We expect that plenty of people who try our product won’t stick around. That’s fine. We want to learn from as many of them as possible. If we can be helpful, listen carefully, and build the things people actually need, we think we’ll earn their trust over time.
+
+A lot of the work now is talking to developers. We want to understand what they’re building with MCP, where they get stuck, and what it takes to move from a working demo to something they can rely on in production. There’s a difference between getting an MCP server running and making it reliable enough for a real product, and we want to understand that difference better.
+
+We also want to make it easier for people to get started without needing to talk to us first. That means improving our documentation, making the product easier to understand, and sharing practical examples of what people can build with NitroStack. We’d rather have someone successfully build something useful with the product than simply visit our website.
+
+We’re going to share more of what we learn as we go. There are still plenty of unanswered questions around how teams should build, test, secure, and deploy MCP servers. We’re figuring some of these things out ourselves, and we think sharing what we learn will be useful to other developers working on the same problems.
+
+The Product Hunt launch was a good milestone, but it’s only the beginning. This week, our focus is on speaking to users, improving the product based on their feedback, and finding more developers building things with MCP.
+
+I’d love to hear from people who’ve launched on Product Hunt before: what did you do after launch?
+
+- How did you turn the initial traffic and signups into active, long-term users?
+
+- Which channels actually worked for you after the launch buzz died down?
+
+- What would you do differently if you were starting again?
+
+And if you’re working on MCP or making a SaaS product usable by AI agents, I’d genuinely love to hear what you’re building and what challenges you’re running into. Happy to share what we’ve learned so far, too.
+
+I know Product Hunt is just one milestone. I’m trying to learn how to build something people keep coming back to, rather than chase another spike in traffic.
+
+What worked for you?",marketing,marketing,True
+"How do you actually make product videos and photos?
+
+I keep going back and forth. UGC creators cost a lot, AI tools feel fake, and shooting it myself looks bad. What do you actually use, and did it bring real conversions?
+
+Curious what worked for people who’ve shipped.",operations,marketing,False
+"Building an AI trading bot and realising the hardest part is actually stopping it
+
+Everyone thinks building a trading bot is just writing a script to buy when the moving average crosses over. This is the easy part.
+
+The hard part is the guardrails. Figuring out when a signal is actually garbage and blocking the trade. I'm building an AI trading platform right now (still in pre launch ) and honestly almost none of my time has gone into the AI. It has all gone into the risk and audit layers a good prediction doesn't mean much if the system falls apart when things go wrong 
+
+Here is what I have actually built so far. 
+
+I wrote a risk function that checks daily losses, draw down, confidence, exposure limits, etc. It returns an approve or reject. The problem is l'm still trying to make sure those sex actually apply to every single execution path in production.
+
+I also added SHA-256 hash chains for the audit records. The problem is I am still trying to make sure those checks actually apply to every single execution path in production. 
+
+I wrote some tests for rejecting bad trades too. But testing it in a sandbox isn't the same as proving every production order path is a fail. 
+
+The production wiring isn't done. The demo data on the site is simulated and I have zero verified live trading performance to show right now. 
+
+Because I am currently at pre launch, the hardest thing is trust. Nobody is going to give an algorithm real money just because the UI looks nice. 
+
+So for the SaaS and fintech guys, what would actually make you trust and all go with your own money? Do you need months of paper trading? Time stamp locks that show the losses just as much as the wins? Or just hard coded loss limits?",operations,operations,True
+"spent Nearly 500$ google ads budget on 200 users, some of them can't even pay for my app. what am I getting wrong?
+
+solo founder here. I've been building Shugo, basically a trading coach in your pocket. you write your own trading rules, and before you take a trade it checks your chart and plan against them, tells you when your size is too big for your account, and tells you to stop when you're clearly revenge trading after a loss. over time it figures out your bad habits. most traders know their rules, they just don't follow them. that's the whole idea.
+
+launched on iOS and Android on Oct 4. building it was honestly the easy part lol. two things are killing me right now: getting the right people in and getting them to stick around.
+
+maybe 70 installs total from US/UK/CA/AU. people spent 40-110 seconds in the app and a few of those countries can't even pay on Google Play. the $30/day was gone in like 10 minutes.
+
+from what I can tell google just bought the cheapest installs it could find, mostly reward ads inside games. and I didn't have firebase in the app so google never saw a single signup. it optimized for installs and found people who install everything.
+
+retention is the other mess. Around 80% of people who hit the sign in screen just... leave without tapping anything
+
+so most people never reach the part that's supposed to keep them, the coach that knows your rules and remembers your history. no idea yet if the ones who do get there stay.
+
+what I changed:
+
+- paused ads. 
+
+- free sample session on first open so you see how it works before any form
+
+- signup now comes before your first session on your own chart, with a free month shown before signup. the coach needs an account to remember your rules anyway
+
+too early to tell if any of it worked.
+
+questions for people who've done B2C subscriptions:
+
+- what actually moved retention in your first month? onboarding, push, email?
+
+- is gating the first real session behind signup dumb this early? anonymous use converted at 3% so I figured why not
+
+- niche audience (retail day traders, prop firm traders). did paid ads ever work early for you or was it communities/content first?
+
+can share the posthog funnels or the ad breakdown if anyone wants",sales_monetization,marketing,False
+"6 months, 2 platforms: I'll never split marketing site and app again
+
+Over the last 6 months I built two platforms. First a marketplace for fractional executives, then a more or less related one for co-founder matching 
+
+For the first one I went the classic route: the app in Next.js, the marketing site as a separate WordPress + Elementor install.
+
+For the second one I built everything directly with Claude Code, including the website and all landing pages, in the same codebase as the app. (I reused some code base from the first project, but besides that I was massively faster this time.)
+
+I wouldn't split it again. Why:
+
+- Performance out of the box. Every page scores 100 on Google PageSpeed Insights, and I didn't have to tune anything to get there. No plugin bloat, no caching plugins, no fighting the page builder. 
+
+- Real app screens on marketing pages. I can bring actual app screens into the landing pages to explain how the solution works, without a detour through a separate CMS workflow.
+
+- Smooth workflow with Claude Design. Design and code live in one place, so getting from a design to a working page is seamless. (I'm on the Claude Max 5x plan.)
+
+- Live platform data without widgets. Marketing pages can show live data from the platform directly, because they are part of the app. No embeds, no widgets, no glue code between WordPress and the app.
+
+What hasn't changed at all
+
+- It still pays off massively to define the solution properly upfront and then execute step by step. AI makes building faster, but it doesn't replace knowing exactly what you want to build.
+
+- And build serious test coverage with a solid set of end-to-end tests. The faster you ship, the more you need them.
+
+Trade-offs, to be fair
+
+- Changing marketing copy now means a code change and a deploy. As a solo founder that's fine for me, for a team with non-technical marketers it might not be.
+
+- There's no visual page builder for others to play around with.
+
+- I don't know whether integrating a blog function is a good idea to build custom... 
+
+If you want to see the look and feel in practice: the co-founder platform is cofoundista.com. Feel free to run it through PageSpeed yourself.
+
+Curious how others handle this: still running a separate CMS for marketing, or everything in one codebase?",sales_monetization,marketing,False
+"Your activation rate is meaningless if you haven't defined activation.
+
+For a project management SaaS, activation might mean creating a project and inviting a teammate. 
+
+For an AI research tool, it might mean completing a research task and using the output. 
+
+For a CRM, it could mean importing contacts and completing the first workflow. 
+
+Notice the difference?
+A signup is an event.
+Activation is evidence that a user has experienced meaningful value. 
+
+Here's a practical formula: 
+
+Activation rate = Users who complete the activation event within a defined window ÷ Eligible new users × 100 
+
+Example:100 new users sign up.
+35 complete your defined value event within seven days. 
+
+Your seven-day activation rate is 35%. 
+
+Track this by signup cohort and acquisition source. 
+
+Then compare activated users with non-activated users to see whether activation predicts retention. 
+
+Don't copy another SaaS company's activation event. 
+
+Define the first moment your customer gets real value. 
+
+What is that moment in your product?",operations,idea_validation,False
+"I built shared memory system for every AI provider. Make research in grok, ask ChatGPT
+
+Every time I made a research in grok and hit free limit, I wanted to switch to ChatGPT or Claude and continue conversation. 
+
+Unfortunately, it wasn’t possible unless I copied the entire huge context (couple of messages), pasted in other AI provider and got angry that after such a process it still hallucinates.
+
+Then I was introduced to markdown second brain file system and I used it in Claude code. It worked perfectly but still… couldn’t make research across multiple providers.
+
+Solution? Shared memory via mcp on VPS. Connect once, use like crazy.
+
+I wanted to share this solution, maybe someone needs it.
+
+Cheers",operations,operations,True
+"we got 5 people to pay in one week on a product that had zero revenue
+
+a founder messaged last week about their saas. it had been live for a while but was completely quiet. no one had paid yet. they said they had posted a couple of times on their own and nothing came of it.
+
+we told them we would try organic for a week and see if anything moved. just posts in the places people already talk about the problem. no ads, nothing fancy.
+
+the first few days were quiet. then on day four someone commented on one of the posts and signed up the same afternoon. the next day two more people showed up. by sunday there were five people who had actually paid. the mrr went from zero to about $164.50.
+
+what felt strange was how ordinary it looked from the outside. the people who paid did not seem like they were hunted down. they just saw the post somewhere, recognized the problem, and tried the product. one of them even left a short reply later saying the post was the only reason they looked at it.
+
+i am still not sure how repeatable this is. most of the time these things move slower. but this week made me notice that sometimes the first few customers just show up when the posts land in the right places. we are going to keep posting the same way and see if anything else happens.",sales_monetization,sales_monetization,True
+"Founder Journey #1: Airbnb. Two broke designers sold cereal to survive
+
+In 2007, Brian Chesky and Joe Gebbia couldn't pay their San Francisco rent. A design conference was in town and hotels were full, so they put three air mattresses on their floor and built a simple website. Their first 3 guests paid $80 each.
+
+Then it got hard. Of 7 investors they approached, 5 said no and 2 never replied. To stay alive they sold election-themed cereal boxes and raised about $30K. In 2009 they got into Y Combinator.
+
+What actually made it grow:
+
+- They visited hosts in New York and took the listing photos themselves. Bookings reportedly went up 2-3x.
+
+- They cross-posted listings to Craigslist to borrow its traffic.
+
+- They added trust features (verified photos, a $1M host guarantee) and then mobile apps.
+
+In 2020, COVID cut revenue by over 80% in about 8 weeks and they laid off about 25% of staff. They still went public that December.
+
+Biggest lesson for me as a developer: find the exact point where users get stuck, fix it by hand first, then automate it.
+
+Which ""unscalable"" thing did you do first in your own project?
+
+Sources: Sequoia, GrowthHackers, Boston University Business Review, Axios",sales_monetization,marketing,False
+"Teach me how to do marketing
+
+https://chartsy.app/growth-challenge",operations,marketing,False
+"My side project turned into a real business. Now I'm looking to sell it
+
+Hey everyone!
+
+About two years ago, I started working on a small project called Phia. it started as a simple chrome extension eventually turned into Dina, a native Mac app that helps people create beautiful screen recordings and screenshots
+
+I've built pretty much everything myself, from the actual app to the website, design, licensing, and customer support.
+
+Dina has grown to 500+ paying customers and over $15k in lifetime revenue, almost entirely through organic traffic. I've never spent money on paid advertising.
+
+I still feel so happy that people paid for something I built :)
+
+But lately, I've been working on a new project that I really want to give my full attention to ( its in film making and animation ). For the past few months, I've mostly been working on Dina during weekends. It's still generating sales, but I know there's a lot more potential in it than what I'm currently able to pursue.
+
+And that's why I've decided to sell it.
+
+It's difficult, but I think it makes more sense to find someone who can take it further rather than keep splitting my time between projects.
+
+I think there's a real opportunity here for someone who's good at marketing and distribution, especially since I've barely explored those areas.
+
+I've also listed Dina on Acquire.com, where I've shared more details about the business and its financials:
+
+Acquire listing: https://app.acquire.com/startup/24k9kgyxTjX0LByrvmDslWYuyAq1/DUOSUExwiLW9MNTVGC4b
+
+Website: https://dina.so
+
+If anyone here is interested in acquiring it, feel free to reach out. Happy to chat and share more details!
+
+X/Twitter: https://x.com/zaidbren
+
+Email: [zaid@dina.so](mailto:zaid@dina.so)
+
+Thanks for reading!",marketing,sales_monetization,False
+"What do you think about ai movies/shorts
+
+what is the reality behind making money from ai movies/shorts?",idea_validation,sales_monetization,False
+"Solo student founder: building a tool for one tiny niche, launching on Product Hunt tomorrow
+
+I built this, so disclosure up front. FantasyForge is a tool for people who play pick'em fantasy apps like PrizePicks and Underdog. Paste your PrizePicks board, see the combo to play.
+
+Three things I learned building for a narrow audience:
+
+- The input format was the product. People were not going to type 200 player lines in. Making ""paste the whole board"" work did more than any feature.
+
+- Tracking beat predicting. Users cared more about seeing how past combos graded than about any single ranking.
+
+- Timing is brutal in sports. A board is stale by tomorrow, so everything has to be same-day.
+
+It launches on Product Hunt tomorrow (Wed Oct 21). Happy to answer questions about building solo as a student, or about the parsing side.",marketing,idea_validation,False
+"built a day planner you just talk to, looking for honest feedback
+
+hey! i'm 18, in my last year of school, and got tired of dragging every block into a calendar, so i built my own planner. it's called Ryth.
+
+you type or say what's coming up and it turns that into tasks with the right times (screenshot: what i typed on the left, my day on the right). if you have a lot of open stuff, there's a ""reorganize"" button that asks a few questions and then sorts it into your free time. you see every change first and can undo it.
+
+no account and nothing to pay, your tasks stay on your phone. android gets the app, iphone a web version (reminders there only while it's open).
+
+i'm looking for a few people who'd use it for a week and tell me honestly: what confused you, where did it misunderstand you, would you miss it? if you're up for it, reply and i'll send you an invite code. and if you just have thoughts from the screenshot, that helps too",marketing,idea_validation,False
+"I just launched my solo-built habit tracker on Google Play. Here’s what I learned
+
+Hey all, I’m a solo dev and I just released GridHabit: Habit Tracker on Android.
+
+It shows your habits as a colored grid, so you can see how you’re doing at a glance. I handled development, design and marketing myself.
+
+What I learned along the way:
+
+- Shipping a simple version beats polishing forever. I launched with the core idea and I’m improving it from real feedback.
+
+- Doing everything solo forces you to cut features. If something didn’t help the main idea, it didn’t make it in.
+
+- The launch is only the start. Getting the first users is a whole separate job from building the app.
+
+I’m still figuring out how to get the first users, so I’d love feedback on two things:
+
+- What would make you try a new habit tracker over the one you use now?
+
+- Any channels that worked for you when launching a small app?
+
+Link: GridHabit",marketing,marketing,True
