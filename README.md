@@ -517,24 +517,23 @@ Matching staff on all 30 posts, including the ones picked to be ambiguous, sugge
 ## The Improvement
 
 **What I changed:**
+One training setting: the learning rate, from 2e-5 to 5e-5. Nothing else changed: same data, same 3 epochs, batch size 16, max length 128, and the same three seeds (42, 7, 2024).
 
 **Which diagnosis pointed at it:**
+My diagnosis for misses 1, 2, and 5 was that the model didn't learn: training loss barely moved from the random-guess level (1.386), and with about 42 updates at 2e-5, each step was too small to move it off the majority class. My agreement report (30/30 with staff) suggested my rule-following wasn't the main problem, so I changed training instead of relabeling. I picked the learning rate over more epochs because it makes each step bigger without making training longer.
 
 ### Run Log — After
 
 | Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
 |---|---|---|---|---|---|
-| 1.  |  |  |  |  |  |
-| 2.  |  |  |  |  |  |
-| 3.  |  |  |  |  |  |
-| 4.  |  |  |  |  |  |
-| 5.  |  |  |  |  |  |
+| 1. Overall accuracy | ≥ 0.80 | 0.333 | 0.356 | 0.356 | MISSED |
+| 2. Every label F1 | ≥ 0.75 | 0.000 (lowest) | 0.000 (lowest) | 0.000 (lowest) | MISSED |
+| 3. No label under 40 posts | ≥ 40 each | 60 (smallest) | 60 | 60 | MET |
+| 4. Self-agreement on 20 re-labeled posts | ≥ 15 / 20 | 7 / 20 | n/a | n/a | MISSED (labels unchanged) |
+| 5. Confidence > 0.85 is right ≥ 95% | ≥ 95% | avg conf 0.41 | avg conf 0.42 | avg conf 0.38 | MISSED |
 
 **Did it help, and how do I know:**
-
-<!-- If it didn't, say so. Relabelling that didn't help is a genuinely
-     interesting result and earns full credit. -->
-
+No. Seeds 7 and 2024 still predicted `idea_validation` for every test post, exactly as before. Seed 42 moved one post off `idea_validation`, but it called a real `idea_validation` post `sales_monetization`, so its accuracy dropped from 0.356 to 0.333. Every other label still has F1 0.000 on every seed. Average confidence rose slightly (from about 0.36 to about 0.40), so the model moved a little further from uniform guessing, but not enough to change its predictions. This weakens my training-only diagnosis. A bigger step size alone wasn't enough, which suggests the inconsistent labels I found in criterion 4 (7/20 self-agreement, mostly `marketing` vs. `sales_monetization`) are holding the model back more than I thought. If I had another run, I would relabel that one boundary rather than change another setting.
 
 
 ---
