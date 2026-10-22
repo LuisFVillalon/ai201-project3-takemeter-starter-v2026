@@ -542,11 +542,16 @@ No. Seeds 7 and 2024 still predicted `idea_validation` for every test post, exac
 
 <!-- For each criterion still missed: what you'd do, and why you stopped. -->
 
+**Criteria 1, 2, and 5 (accuracy, per-label F1, confident predictions): still missed.**
+The model still predicts `idea_validation` for nearly every post. What I'd do next: relabel the `marketing` vs. `sales_monetization` boundary first, by rewriting the two definitions with a worked example on each side (the way the staff taxonomy does) and re-applying that one rule to every row on that boundary. Then I'd retrain on the same three seeds. If it still collapsed, my next single change would be more epochs, since 3 epochs is only about 42 updates. I stopped because the unit asks for one measured change, and each three-seed run takes about 30 minutes on my CPU.
 
+**Criterion 4 (self-agreement ≥ 15/20): still missed at 7/20.**
+What I'd do: tighten my definitions so `marketing` means only getting attention (visitors, channels, awareness) and `sales_monetization` starts once someone is already looking at the product (signups, pricing, payments, deals). Then I'd re-label the same 20 posts blind and measure again. I stopped because fixing it means relabeling, and I'd already used my one change on the learning rate.
 
 **The gap between what I meant my labels to capture and what the model
 learned:**
 <!-- Two sentences. Your confusion matrix is the evidence. -->
+I meant my labels to capture the main business problem a founder is stuck on: what to build, how to get seen, how to get paid, or how to run things. My confusion matrix shows the model learned none of that, only the label frequency: every column except `idea_validation` is zero, so it puts every post in my most common label no matter what the post is about.
 
 
 
